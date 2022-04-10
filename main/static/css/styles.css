@@ -1,0 +1,458 @@
+/* 1 */
+:root {
+    --lpink: #F9D1D9;
+    --dpink: #F791A9;
+    --rainblue: #A0B9CE;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    z-index: 999;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 200px;
+    transition: 0.5s ease;
+    background-color: var(--rainblue);
+}
+
+
+
+header .name {
+    transition: all .3s cubic-bezier(0, 0, .23, 1);
+    text-decoration: none;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(90deg, var(--lpink) 0, var(--lpink) 50%, white 0);
+    background-size: 200% 100%;
+    background-position: 100%;
+    font-size: 2rem;
+    color: white;
+    text-align: left;
+    font-weight: 700;
+}
+
+header .name:hover {
+    background-position: 0;
+    color: var(--lpink);
+}
+
+
+header .navigation {
+    position: relative;
+}
+
+header .navigation .navigation-items a {
+    position: relative;
+    color: white;
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 30px;
+    transition: 0.3s ease;
+}
+
+header .navigation .navigation-items a:before {
+    content: '';
+    position: absolute;
+    background-color: var(--lpink);
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    transition: 0.3s ease-in-out;
+}
+
+header .navigation .navigation-items a:hover:before {
+    width: 100%;
+}
+
+/* /1 */
+
+/* 2 */
+.slider {
+    position: relative;
+    width: 100%;
+    background: #2c3e50;
+    /* darckblue */
+    transition: 0.5s ease-in-out;
+}
+
+.myslide {
+    height: 655px;
+    display: none;
+    overflow: hidden;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 50px;
+    padding: 15px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.1s;
+    user-select: none;
+}
+
+.prev:hover,
+.next:hover {
+    color: var(--dpink);
+    /* blue */
+}
+
+.next {
+    right: 0;
+}
+
+.dotsbox {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20px;
+    cursor: pointer;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+/* /2 */
+
+/* javascript */
+.active,
+.dot:hover {
+    border-color: var(--dpink);
+    /* blue */
+}
+
+/* /javascript */
+
+/* muslide add fade */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: 0.8
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.8
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* /muslide add fade */
+
+/* 3 */
+.txt {
+    position: absolute;
+    color: var(--lpink);
+    letter-spacing: 2px;
+    line-height: 35px;
+    top: 40%;
+    left: 15%;
+    -webkit-animation-name: posi;
+    -webkit-animation-duration: 2s;
+    animation-name: posi;
+    animation-duration: 2s;
+    z-index: 1;
+}
+
+@-webkit-keyframes posi {
+    from {
+        left: 25%;
+    }
+
+    to {
+        left: 15%;
+    }
+}
+
+
+@keyframes posi {
+    from {
+        left: 25%;
+    }
+
+    to {
+        left: 15%;
+    }
+}
+
+.txt h1 {
+    color: var(--dpink);
+    /* blue */
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.txt p {
+    font-size: 20px;
+}
+
+/* /3 */
+
+/* 4 */
+.banner {
+    transform: scale(1.5, 1.5);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 40s;
+    animation-name: zoomin;
+    animation-duration: 40s;
+    filter: brightness(50%);
+    transition: 0.5s ease-in-out;
+}
+
+.slider:hover .banner {
+    filter: blur(5px) brightness(30%);
+    transition: 1s ease-in-out;
+}
+
+.slider:hover button {
+    display: block;
+    transition: 1s ease-in-out;
+}
+
+button {
+    background-color: black;
+    font-size: 20px;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    margin: 10px;
+    transition: 0.3s ease-in-out;
+    display: none;
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: black
+}
+
+button a:hover {
+    color: black;
+}
+
+@-webkit-keyframes zoomin {
+    from {
+        transform: scale(1, 1);
+    }
+
+    to {
+        transform: scale(1.5, 1.5);
+    }
+}
+
+
+@keyframes zoomin {
+    from {
+        transform: scale(1, 1);
+    }
+
+    to {
+        transform: scale(1.5, 1.5);
+    }
+}
+
+/* /4 */
+
+
+
+/* 5 */
+@media screen and (max-width: 800px) {
+    .myslide {
+        height: 500px;
+    }
+
+    .txt {
+        letter-spacing: 2px;
+        line-height: 25px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-animation-name: posi2;
+        -webkit-animation-duration: 2s;
+        animation-name: posi2;
+        animation-duration: 2s;
+    }
+
+    @-webkit-keyframes posi2 {
+        from {
+            top: 35%;
+        }
+
+        to {
+            top: 50%;
+        }
+    }
+
+
+    @keyframes posi2 {
+        from {
+            top: 35%;
+        }
+
+        to {
+            top: 50%;
+        }
+    }
+
+    .txt h1 {
+        font-size: 40px;
+    }
+
+    .txt p {
+        font-size: 13px;
+    }
+
+}
+
+/* /5 */
+
+/* 6 */
+@media screen and (max-width: 520px) {
+    .txt h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .sign {
+        margin-right: 20px;
+    }
+
+    .sign a {
+        font-size: 12px;
+    }
+}
+
+/* /6 */
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.new {
+    padding-top: 70px;
+    padding-bottom: 10px;
+    text-align: center;
+    margin: auto;
+    font-weight: lighter;
+}
+
+.content {
+    width: 20%;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-width: 2px;
+    cursor: pointer;
+    padding-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.content:hover {
+    background-color: var(--rainblue);
+
+}
+
+.content a {
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.pic {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
+
+.product {
+    text-align: center;
+    font-weight: lighter;
+    width: 200px;
+    margin: auto;
+}
+
+.price {
+    font-weight: bold;
+}
+
+
+@media(max-width: 1000px) {
+    .content {
+        width: 45%;
+
+    }
+}
+
+@media(max-width: 750px) {
+    .content {
+        width: 100%;
+
+    }
+}
+.boxes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: auto;
+    padding: 70px 0;
+}
+.box{
+    padding: 10px;
+    position: relative;
+    margin: auto;
+}
+

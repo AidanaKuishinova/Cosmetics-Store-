@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+	<title>
+		main
+	</title>
+	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
+</head>
+
+<body style="height: 2000px;">
+	<header id="b">
+		<a href="" class="name">Face It!</a>
+		<div class="navigation">
+			<div class="navigation-items">
+				<a href="#">ГЛАВНАЯ</a>
+				<a href="#">КАТАЛОГ</a>
+				<a href="#">БРЕНДЫ</a>
+				<a href="#">НОВИНКИ</a>
+				<a href="#">АКЦИИ</a>
+				<a href="#">ПОДАРОЧНЫЕ КАРТЫ</a>
+			</div>
+		</div>
+	</header>
+
+	<div class="slider">
+		<!-- fade css -->
+		<div class="myslide fade">
+			<div class="txt">
+				<h1>The Ordinary.</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<button><a href="#">ПОСМОТРЕТЬ</a></button>
+			</div>
+			<img src="{% static 'images/the ordinary.png' %}" style="width: 100%; height: 100%;" class="banner">
+		</div>
+
+		<div class="myslide fade">
+			<div class="txt">
+				<h1>Some By Mi</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<button><a href="#">ПОСМОТРЕТЬ</a></button>
+			</div>
+
+			<img src="{%  static 'images/somebymi.jpg' %}" style="width: 100%; height: 100%;" class="banner">
+		</div>
+
+		<div class="myslide fade">
+			<div class="txt">
+				<h1>Elizavecca</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<button><a href="#">ПОСМОТРЕТЬ</a></button>
+			</div>
+			<img src="{% static 'images/the ordinary.png' %}" style="width: 100%; height: 100%;" class="banner">
+		</div>
+
+		<div class="myslide fade">
+			<div class="txt">
+				<h1>Dr.Jart+</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<button><a href="#">ПОСМОТРЕТЬ</a></button>
+			</div>
+			<img src="{% static 'images/drjart.jpg' %}" style="width: 100%; height: 100%;" class="banner">
+		</div>
+
+		<div class="myslide fade">
+			<div class="txt">
+				<h1>Paula's Choice</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+				<button><a href="#">ПОСМОТРЕТЬ</a></button>
+			</div>
+			<img src="{% static 'images/paula.png' %}" style="width: 100%; height: 100%;" class="banner">
+		</div>
+		<!-- /fade css -->
+
+		<!-- onclick js -->
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+		<div class="dotsbox" style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>
+			<span class="dot" onclick="currentSlide(5)"></span>
+		</div>
+		<!-- /onclick js -->
+	</div>
+
+	<h2 class="new">НОВИНКИ</h2>
+	<div class="gallery">
+		{% for product in products %}
+		<div class="content">
+			<a href="#">
+				{% static "images/products/" as folder %}
+
+			<img src="{{folder}}/{{product.image}}.jpg" alt="" class="pic">
+			<h6 class="product">{{product.title}}</h6>
+			<h6 class="price">{{product.price}} Т</h6></a>
+		</div>
+		{% endfor %}
+
+	</div>
+
+	<div class="boxes">
+		<div class="box"><a href="">
+			<img src="assets/images/а1.png" alt="" class="inbox"></a>
+		</div>
+		<div class="box"><a href="">
+			<img src="assets/images/а2.png" alt="" class="inbox"></a>
+		</div>
+		<div class="box"><a href="">
+			<img src="assets/images/а3.png" alt="" class="inbox"></a>
+		</div>
+	</div>
+
+
+	<h2 class="new">ПОПУЛЯРНОЕ</h2>
+	<div class="gallery">
+			{% for product in popular %}
+		<div class="content">
+			<a href="#">
+				{% static "images/products/" as folder %}
+
+			<img src="{{folder}}/{{product.image}}.jpg" alt="" class="pic">
+			<h6 class="product">{{product.title}}</h6>
+			<h6 class="price">{{product.price}} Т</h6></a>
+		</div>
+		{% endfor %}
+	</div>
+
+	<script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
