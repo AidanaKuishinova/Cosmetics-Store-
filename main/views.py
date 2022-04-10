@@ -19,6 +19,8 @@ def index(request):
     context['popular'] = products
     return  render(request, 'main/index.html',context)
 
+def get_cart(request):
+    return render(request,"main/cart.html")
 
 
 
