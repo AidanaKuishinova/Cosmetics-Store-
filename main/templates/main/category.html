@@ -1,0 +1,91 @@
+
+{% load static %}
+
+<html>
+<head>
+	<title>
+		main
+	</title>
+	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
+</head>
+
+<body style="height: 2000px;">
+	<header id="b">
+		<a href="" class="name">Face It!</a>
+		<div class="navigation">
+			<div class="navigation-items">
+				<a href="#">ГЛАВНАЯ</a>
+				<a href="#">КАТАЛОГ</a>
+				<a href="#">БРЕНДЫ</a>
+				<a href="#">НОВИНКИ</a>
+				<a href="#">АКЦИИ</a>
+				<a href="#">ПОДАРОЧНЫЕ КАРТЫ</a>
+			</div>
+		</div>
+	</header>
+
+
+    <script src="app.js"></script>
+
+
+<center>
+        <div class="white">
+            {% for product in products %}
+              <li class="product" data-sort={{product.price}} data-title="{{product.title}}">
+                  {% static "images/products/" as folder %}
+                  <img src="{{folder}}/{{product.image}}.jpg" alt="">
+                  <div class="product_detail">
+                      <p class="product_link mb-3"><a href="#">{{product.title}}</a></p>
+                      <div class="price_n_cart">
+
+                          <div class="price">
+                              {{product.price}} ₸
+                          </div>
+
+                      </div>
+                  </div>
+              </li>
+              {% endfor  %}
+        </div>
+    </center>
+
+
+    <footer>
+        <div class="container">
+            <div class="section1">
+                <ul class="s1">
+                    <li>
+                        <p><a href=""> 8 777 777 7777</a></p>
+                        <p><a href="">shop@faceit.kz</a></p>
+                    </li>
+                    <li>
+                        <p><a href="">ул. Улица, г. Нур-Султан</a></p>
+                    </li>
+                    <li>
+                        <p>С 09:00 до 20:00 </p>
+                        <p>без перерывов и выходных</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="section2">
+                <ul class="s2">
+                    <li>
+                        <p class = "logo">Face It!</p>
+                    </li>
+                    <li>
+                        <ul class = "socmedia">
+                            <li><a href="">A</a></li>
+                            <li><a href="">B</a></li>
+                            <li><a href="">C</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="section3"></div>
+        </div>
+    </footer>
+</body>
+
+
+
+</html>

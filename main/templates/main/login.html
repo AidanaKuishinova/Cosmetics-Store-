@@ -1,6 +1,67 @@
+{% load static %}
 
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="{% static 'css/login.css' %}">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Вход
+            </div>
+            <div class="title signup">
+               Регистрация
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Вход</label>
+               <label for="signup" class="slide signup">Регистрация</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="" class="login" method="POST">
+                              {% csrf_token %}
 
-{% if form.errors %}
+                  <div class="field">
+                     <input type="text" name="username" placeholder="логин" required>
+                  </div>
+                  <div class="field">
+                     <input type="password"  name="password" placeholder="пароль" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Войти">
+                  </div>
+                  <div class="signup-link">
+                     Не зарегистрированы?</br><a href="">Зарегистрироваться сейчас</a>
+                  </div>
+               </form>
+               <form action="#" class="signup">
+                  <div class="field">
+                     <input type="text"  name="username" placeholder="логин" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" name="password" placeholder="пароль" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="подтвердите пароль" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Зарегистрироваться">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+
+      {% if form.errors %}
        {% for field in form %}
            {% for error in field.errors %}
               <div class="alert alert-danger">
@@ -9,19 +70,25 @@
            {% endfor %}
        {% endfor %}
     {% endif %}
-    <div class="container">
-        <h2 class="reg_auth_h mb-4">Авторизация</h2>
-        <form action="" method="POST" style=" width: 50vw; margin-left : 25vw;">
-            {% csrf_token %}
-            <div class="form-row">
-                <label for="id_username">Имя пользователя:</label>
-                <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
-            </div>
 
-            <div class="form-row">
-                <label for="id_password">Пароль:</label>
-                <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
-            </div>
-            <button class="btn mt-2 " type="submit" style="max-width:fit-content;">Вход</button>
-        </form>
-    </div>
+      <script>
+         const loginText = document.querySelector(".title-text .login");
+         const loginForm = document.querySelector("form.login");
+         const loginBtn = document.querySelector("label.login");
+         const signupBtn = document.querySelector("label.signup");
+         const signupLink = document.querySelector("form .signup-link a");
+         signupBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "-50%";
+           loginText.style.marginLeft = "-50%";
+         });
+         loginBtn.onclick = (()=>{
+           loginForm.style.marginLeft = "0%";
+           loginText.style.marginLeft = "0%";
+         });
+         signupLink.onclick = (()=>{
+           signupBtn.click();
+           return false;
+         });
+      </script>
+   </body>
+</html>

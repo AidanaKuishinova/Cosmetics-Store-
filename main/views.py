@@ -19,13 +19,23 @@ def index(request):
     context['popular'] = products
     return  render(request, 'main/index.html',context)
 
+def category(request):
+
+    context={}
+    category=Category.objects.get(title='Маски')
+    products=Product.objects.filter(category=category)
+    context['products']=products
+
+    return  render(request, 'main/category.html',context)
+
+
 def get_cart(request):
     return render(request,"main/cart.html")
 
 
 
 class MyLoginView(LoginView):
-    template_name = "main/login1.html"
+    template_name = "main/login.html"
     form_class = AuthUserForm
     success_url = reverse_lazy('index')
 
