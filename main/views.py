@@ -19,14 +19,16 @@ def index(request):
     context['popular'] = products
     return  render(request, 'main/index.html',context)
 
-def category(request):
 
-    context={}
-    category=Category.objects.get(title='Маски')
-    products=Product.objects.filter(category=category)
-    context['products']=products
+def categories(request, category):
+    category2 = Category.objects.get(url=category)
+    products=Product.objects.filter(category=category2)
 
-    return  render(request, 'main/category.html',context)
+    contex = {
+        'title':category2.title,
+        'products': products,
+    }
+    return render(request, 'main/category.html', contex)
 
 
 def get_cart(request):
