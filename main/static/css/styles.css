@@ -38,7 +38,7 @@
 .product_image {
 	 height: 200px;
      display: flex;
-	 
+	 width: 200px;
 }
 
  .product_item {
@@ -127,7 +127,6 @@
 
 header {
     z-index: 999;
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
