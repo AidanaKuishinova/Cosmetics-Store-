@@ -103,44 +103,92 @@
 	<h2 class="new">НОВИНКИ</h2>
 	<div class="gallery">
 		{% for product in products %}
-		<div class="content">
-			<a href="#">
-				{% static "images/products/" as folder %}
+		<div class="item">
+			{% static "images/products/" as folder %}
+			<div class="images">
+			  <img class="product_image"src="{{folder}}/{{product.image}}.jpg" />
+			</div>
+		
+			<div class="product">
 
-			<img src="{{folder}}/{{product.image}}.jpg" alt="" class="pic">
-			<h6 class="product">{{product.title}}</h6>
-			<h6 class="price">{{product.price}} Т</h6></a>
-		</div>
+			  <h1 class="product_title">{{product.title}}</h1>
+			  <h2 class="product_price">{{product.price}}₸</h2>
+			  
+
+				<button class="addtocartbtn add">Add to Cart</button>
+			</div>
+		  </div>
 		{% endfor %}
 
 	</div>
 
 	<div class="boxes">
 		<div class="box"><a href="">
-			<img src="assets/images/а1.png" alt="" class="inbox"></a>
+			<img src="{% static 'images/а1.png' %}" alt="" class="inbox"></a>
 		</div>
 		<div class="box"><a href="">
-			<img src="assets/images/а2.png" alt="" class="inbox"></a>
+			<img src="{% static 'images/а2.png' %}" alt="" class="inbox"></a>
 		</div>
 		<div class="box"><a href="">
-			<img src="assets/images/а3.png" alt="" class="inbox"></a>
+			<img src="{% static 'images/а3.png' %}" alt="" class="inbox"></a>
 		</div>
 	</div>
 
 
 	<h2 class="new">ПОПУЛЯРНОЕ</h2>
 	<div class="gallery">
-			{% for product in popular %}
-		<div class="content">
-			<a href="#">
-				{% static "images/products/" as folder %}
+		{% for product in popular %}
+		<div class="item">
+			{% static "images/products/" as folder %}
+			<div class="images">
+			  <img class="product_image"src="{{folder}}/{{product.image}}.jpg" />
+			</div>
+		
+			<div class="product">
 
-			<img src="{{folder}}/{{product.image}}.jpg" alt="" class="pic">
-			<h6 class="product">{{product.title}}</h6>
-			<h6 class="price">{{product.price}} Т</h6></a>
-		</div>
+			  <h1 class="product_title">{{product.title}}</h1>
+			  <h2 class="product_price">{{product.price}}₸</h2>
+			  
+
+				<button class="addtocartbtn add">Add to Cart</button>
+			</div>
+		  </div>
 		{% endfor %}
 	</div>
+<footer>
+        <div class="container">
+            <div class="section1">
+                <ul class="s1">
+                    <li>
+                        <p><a href=""> 8 777 777 7777</a></p>
+                        <p><a href="">shop@faceit.kz</a></p>
+                    </li>
+                    <li>
+                        <p><a href="">ул. Улица, г. Нур-Султан</a></p>
+                    </li>
+                    <li>
+                        <p>С 09:00 до 20:00 </p>
+                        <p>без перерывов и выходных</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="section2">
+                <ul class="s2">
+                    <li>
+                        <p class = "logo">Face It!</p>
+                    </li>
+                    <li>
+                        <ul class = "socmedia">
+                            <li><a href="">A</a></li>
+                            <li><a href="">B</a></li>
+                            <li><a href="">C</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="section3"></div>
+        </div>
+    </footer>
 
 	<script src="{% static 'js/script.js' %}"></script>
 </body>

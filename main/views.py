@@ -2,7 +2,7 @@
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, CreateView, DetailView
 from django.urls import reverse_lazy
-
+import random
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from .forms import AuthUserForm, RegisterUserForm
@@ -12,11 +12,13 @@ from .models import Product,Category
 def index(request):
     context={}
     category=Category.objects.get(title='Маски')
-    products=Product.objects.filter(category=category)
-    context['products']=products
-    category = Category.objects.get(title='Сыворотки')
-    products = Product.objects.filter(category=category)
-    context['popular'] = products
+    products=Product.objects.all()
+    products=list(products)
+    random.shuffle(products)
+    context['products']=products[:4]
+
+    context['popular'] = products[85:93]
+
     return  render(request, 'main/index.html',context)
 
 
