@@ -15,7 +15,7 @@
         <a href="#" class="name">Face It!</a>
         <ul class="navbar">
             <li><a href="#">ГЛАВНАЯ</a></li>
-            <li><a href="#">КАТАЛОГ</a>
+            <li><a href="/filter">КАТАЛОГ</a>
                 <ul class="dropdown">
                     <li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
                     <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
@@ -71,7 +71,7 @@
                     <h2 class="product_price">{{product.price}}₸</h2>
 
 
-                    <button class="addtocartbtn add">Add to Cart</button>
+                    <a href="{% url 'cartadd' id=product.id %}"><button class="addtocartbtn add">Add to Cart</button></a>
                 </div>
             </div>
             {% endfor %}

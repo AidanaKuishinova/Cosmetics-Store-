@@ -14,11 +14,11 @@
 <body style="height: 2000px;">
 
 	<header>
-<<<<<<< HEAD
+
     <a href="#" class="name">Face It!</a>
       <ul class="navbar">
         <li><a href="#">ГЛАВНАЯ</a></li>
-  			<li><a href="filter">КАТАЛОГ</a>
+  			<li><a href="/filter">КАТАЛОГ</a>
           <ul class="dropdown">
             <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
              <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
@@ -37,35 +37,6 @@
   			<li><a href="#">АКЦИИ</a></li>
   			<li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
       </ul>
-=======
-		<a href="#" class="name">Face It!</a>
-		<ul class="navbar">
-			<li><a href="#">ГЛАВНАЯ</a></li>
-			<li><a href="№">КАТАЛОГ</a>
-				<ul class="dropdown">
-					<li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
-							глаз</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a>
-					</li>
-					<li class="subcategories"><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И
-							Мисты</a></li>
-					<li class="subcategories"><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a>
-					</li>
-					<li class="subcategories"><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a>
-					</li>
-				</ul>
-			</li>
-			<li><a href="#">БРЕНДЫ</a></li>
-			<li><a href="#">НОВИНКИ</a></li>
-			<li><a href="#">АКЦИИ</a></li>
-			<li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
-		</ul>
->>>>>>> 99dd695bc1473d90bcd9c5053dafddfe4afc8129
 
 		<div class="icons">
 			<i class='bx bx-menu' id="menu-icon"></i>
@@ -154,7 +125,7 @@
 				<h2 class="product_price">{{product.price}}₸</h2>
 
 
-				<button class="addtocartbtn add">Add to Cart</button>
+				<a href="{% url 'cartadd' id=product.id %}"><button class="addtocartbtn add">Add to Cart</button></a>
 			</div>
 		</div>
 		{% endfor %}
@@ -189,7 +160,7 @@
 				<h2 class="product_price">{{product.price}}₸</h2>
 
 
-				<button class="addtocartbtn add">Add to Cart</button>
+				<a href="{% url 'cartadd' id=product.id %}"><button class="addtocartbtn add">Add to Cart</button></a>
 			</div>
 		</div>
 		{% endfor %}

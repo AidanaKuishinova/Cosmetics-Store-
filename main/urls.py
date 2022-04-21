@@ -23,6 +23,7 @@ urlpatterns = [
     path('register/', views.RegisterUserView.as_view(), name='register'),
     path('logout/', views.MyLogoutView.as_view(), name='logout'),
     path('cart/', views.get_cart, name='cart'),
+    path('cart/add/<uuid:id>/', views.add_to_cart, name='cartadd'),
     path('categories/<str:category>', views.categories, name="categories"),
     path('filter/', views.filter, name='filter'),
 ]

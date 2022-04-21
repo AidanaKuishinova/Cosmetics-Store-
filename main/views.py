@@ -6,7 +6,7 @@ import random
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from .forms import AuthUserForm, RegisterUserForm
-from .models import Product,Category
+from .models import Product,Category,ProductItem,Cart
 
 # Create your views here.
 def index(request):
@@ -33,8 +33,24 @@ def categories(request, category):
 
 
 def get_cart(request):
-    return render(request,"main/cart.html")
+    user = User.objects.get(username=request.user.username)
+    cart = Cart.objects.get(user=user)
+    items=ProductItem.objects.filter(cart=cart)
 
+    contex={
+         'items':items
+     }
+    return render(request,"main/cart.html",contex)
+
+def add_to_cart(request,id):
+    print(id)
+    user=User.objects.get(username=request.user.username)
+    product=Product.objects.get(id=id)
+    cart=Cart.objects.get(user=user)
+    product_item=ProductItem(product=product,cart=cart)
+    product_item.save()
+
+    return redirect("index")
 
 def filter (request):
     return render(request,"main/filter.html")

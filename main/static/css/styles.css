@@ -166,8 +166,8 @@ header{
   column-gap: 2.1rem;
 }
 .navbar a{
-  font-size: 1rem;
-  font-weight: 550;
+  font-size: 16px;
+  font-weight: 400;
   color: white;
   background-image: linear-gradient(var(--lpink), var(--lpink));
   background-size: 0% 0.2em;
