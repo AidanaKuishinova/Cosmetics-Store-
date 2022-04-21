@@ -123,29 +123,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-<<<<<<< HEAD
     list-style: none;
-=======
-}
-
-header {
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 200px;
-    transition: 0.5s ease;
-    background-color: var(--rainblue);
-}
-
-
-
-header .name {
-    transition: all .3s cubic-bezier(0, 0, .23, 1);
->>>>>>> fbeeb074a0f4098ef235f4447185d6ec0fc3d262
     text-decoration: none;
 
 }
@@ -205,6 +183,8 @@ background-size: 100% 0.2em;
 }
 
 .dropdown {
+  padding-left: 10px;
+  line-height: 30px;
   position: absolute;
   width: 200px;
   z-index: 100;
@@ -227,6 +207,7 @@ ul li:hover .dropdown {
 #menu-icon{
   display: none;
 }
+
 /* /1 */
 
 /* 2 */
