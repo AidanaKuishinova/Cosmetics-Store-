@@ -11,7 +11,6 @@ from .models import Product,Category
 # Create your views here.
 def index(request):
     context={}
-    category=Category.objects.get(title='Маски')
     products=Product.objects.all()
     products=list(products)
     random.shuffle(products)
@@ -37,6 +36,8 @@ def get_cart(request):
     return render(request,"main/cart.html")
 
 
+def filter (request):
+    return render(request,"main/filter.html")
 
 class MyLoginView(LoginView):
     template_name = "main/login.html"

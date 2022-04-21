@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<title>
+		main
+	</title>
+	<link rel="stylesheet" href="{% static 'css/stylesfilter.css'%}">
+</head>
+<body>
+    <h1>Каталог</h1>
+    <div class="filter">
+        <h3>Сортировать</h3>
+        <div class="sorting">
+            <select name="" id="">
+                <option value="sort-def">По умолчанию</option>
+                <option value="sort-high">По убыванию цены</option>
+                <option value="sort-low">По возрастанию цены</option>
+                <option value="sort-new">По новизне</option>
+                <option value="sort-asc">По названию</option>
+            </select>
+        </div>
+        <div class="price-input">
+            <div class="field">
+                <span>Мин</span>
+                <input type="number" class="input-min" value = "50000">
+            </div>
+            <div class="separator">-</div>
+            <div class="field">
+                <span>Макс</span>
+                <input type="number" class="input-max" value = "150000">
+            </div>
+        </div>
+        <div class="slider2">
+            <div class="progress"></div>
+        </div>
+        <div class="range-input">
+            <input type="range" class="range-min" min="0" max="200000" value=50000>
+            <input type="range" class="range-max" min="0" max="200000" value=150000>
+        </div>
+    </div>
+
+    <div class="productlist">
+
+    </div>
+    <script src="{% static 'js/scroll.js'%}"></script>
+</body>

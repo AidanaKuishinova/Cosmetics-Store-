@@ -24,5 +24,5 @@ urlpatterns = [
     path('logout/', views.MyLogoutView.as_view(), name='logout'),
     path('cart/', views.get_cart, name='cart'),
     path('categories/<str:category>', views.categories, name="categories"),
-
+    path('filter/', views.filter, name='filter'),
 ]
