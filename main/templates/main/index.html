@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 {% load static %}
@@ -7,34 +6,44 @@
 	<title>
 		main
 	</title>
+
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
 </head>
 
 <body style="height: 2000px;">
-	<header id="b">
-		<a href="" class="name">Face It!</a>
-		<div class="navigation">
-			<div class="navigation-items">
-				<a href="#">ГЛАВНАЯ</a>
-				<a href="#">КАТАЛОГ</a>
-				 <ul>
-                                <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И Мисты</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a></li>
-                                <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
-                            </ul>
-				<a href="#">БРЕНДЫ</a>
-				<a href="#">НОВИНКИ</a>
-				<a href="#">АКЦИИ</a>
-				<a href="#">ПОДАРОЧНЫЕ КАРТЫ</a>
-			</div>
-		</div>
+
+	<header>
+    <a href="#" class="name">Face It!</a>
+      <ul class="navbar">
+        <li><a href="#">ГЛАВНАЯ</a></li>
+  			<li><a href="#">КАТАЛОГ</a>
+          <ul class="dropdown">
+            <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И Мисты</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
+          </ul>
+          </li>
+  			<li><a href="#">БРЕНДЫ</a></li>
+  			<li><a href="#">НОВИНКИ</a></li>
+  			<li><a href="#">АКЦИИ</a></li>
+  			<li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
+      </ul>
+
+      <div class="icons">
+        <i class='bx bx-menu' id="menu-icon"></i>
+        <i class='bx bx-search' id="search-icon"></i>
+        <i class='bx bx-cart' id="cart-icon"></i>
+        <i class='bx bx-user' id="user-icon"></i>
+      </div>
+
 	</header>
 
 	<div class="slider">
