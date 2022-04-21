@@ -28,26 +28,31 @@
     <script src="app.js"></script>
 
 
-<center>
+
+
         <div class="white">
+            <h2 class="new">{{title}}</h2>
+            <div class="gallery">
             {% for product in products %}
-              <li class="product" data-sort={{product.price}} data-title="{{product.title}}">
-                  {% static "images/products/" as folder %}
-                  <img src="{{folder}}/{{product.image}}.jpg" alt="">
-                  <div class="product_detail">
-                      <p class="product_link mb-3"><a href="#">{{product.title}}</a></p>
-                      <div class="price_n_cart">
-
-                          <div class="price">
-                              {{product.price}} ₸
-                          </div>
-
-                      </div>
-                  </div>
-              </li>
-              {% endfor  %}
+            <div class="item">
+                {% static "images/products/" as folder %}
+                <div class="images">
+                  <img class="product_image"src="{{folder}}/{{product.image}}.jpg" />
+                </div>
+            
+                <div class="product">
+    
+                  <h1 class="product_title">{{product.title}}</h1>
+                  <h2 class="product_price">{{product.price}}₸</h2>
+                  
+    
+                    <button class="addtocartbtn add">Add to Cart</button>
+                </div>
+              </div>
+            {% endfor %}
+            </div>
         </div>
-    </center>
+    
 
 
     <footer>
