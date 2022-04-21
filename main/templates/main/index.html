@@ -14,35 +14,40 @@
 <body style="height: 2000px;">
 
 	<header>
-    <a href="#" class="name">Face It!</a>
-      <ul class="navbar">
-        <li><a href="#">ГЛАВНАЯ</a></li>
-  			<li><a href="#">КАТАЛОГ</a>
-          <ul class="dropdown">
-            <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И Мисты</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
-          </ul>
-          </li>
-  			<li><a href="#">БРЕНДЫ</a></li>
-  			<li><a href="#">НОВИНКИ</a></li>
-  			<li><a href="#">АКЦИИ</a></li>
-  			<li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
-      </ul>
+		<a href="#" class="name">Face It!</a>
+		<ul class="navbar">
+			<li><a href="#">ГЛАВНАЯ</a></li>
+			<li><a href="№">КАТАЛОГ</a>
+				<ul class="dropdown">
+					<li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
+							глаз</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a>
+					</li>
+					<li class="subcategories"><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И
+							Мисты</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a>
+					</li>
+					<li class="subcategories"><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#">БРЕНДЫ</a></li>
+			<li><a href="#">НОВИНКИ</a></li>
+			<li><a href="#">АКЦИИ</a></li>
+			<li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
+		</ul>
 
-      <div class="icons">
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <i class='bx bx-search' id="search-icon"></i>
-        <i class='bx bx-cart' id="cart-icon"></i>
-        <i class='bx bx-user' id="user-icon"></i>
-      </div>
+		<div class="icons">
+			<i class='bx bx-menu' id="menu-icon"></i>
+			<i class='bx bx-search' id="search-icon"></i>
+			<i class='bx bx-cart' id="cart-icon"></i>
+			<i class='bx bx-user' id="user-icon"></i>
+		</div>
 
 	</header>
 
@@ -115,31 +120,31 @@
 		<div class="item">
 			{% static "images/products/" as folder %}
 			<div class="images">
-			  <img class="product_image"src="{{folder}}/{{product.image}}.jpg" />
+				<img class="product_image" src="{{folder}}/{{product.image}}.jpg" />
 			</div>
-		
+
 			<div class="product">
 
-			  <h1 class="product_title">{{product.title}}</h1>
-			  <h2 class="product_price">{{product.price}}₸</h2>
-			  
+				<h1 class="product_title">{{product.title}}</h1>
+				<h2 class="product_price">{{product.price}}₸</h2>
+
 
 				<button class="addtocartbtn add">Add to Cart</button>
 			</div>
-		  </div>
+		</div>
 		{% endfor %}
 
 	</div>
 
 	<div class="boxes">
 		<div class="box"><a href="">
-			<img src="{% static 'images/а1.png' %}" alt="" class="inbox"></a>
+				<img src="{% static 'images/а1.png' %}" alt="" class="inbox"></a>
 		</div>
 		<div class="box"><a href="">
-			<img src="{% static 'images/а2.png' %}" alt="" class="inbox"></a>
+				<img src="{% static 'images/а2.png' %}" alt="" class="inbox"></a>
 		</div>
 		<div class="box"><a href="">
-			<img src="{% static 'images/а3.png' %}" alt="" class="inbox"></a>
+				<img src="{% static 'images/а3.png' %}" alt="" class="inbox"></a>
 		</div>
 	</div>
 
@@ -150,54 +155,23 @@
 		<div class="item">
 			{% static "images/products/" as folder %}
 			<div class="images">
-			  <img class="product_image"src="{{folder}}/{{product.image}}.jpg" />
+				<img class="product_image" src="{{folder}}/{{product.image}}.jpg" />
 			</div>
-		
+
 			<div class="product">
 
-			  <h1 class="product_title">{{product.title}}</h1>
-			  <h2 class="product_price">{{product.price}}₸</h2>
-			  
+				<h1 class="product_title">{{product.title}}</h1>
+				<h2 class="product_price">{{product.price}}₸</h2>
+
 
 				<button class="addtocartbtn add">Add to Cart</button>
 			</div>
-		  </div>
+		</div>
 		{% endfor %}
 	</div>
-<footer>
-        <div class="container">
-            <div class="section1">
-                <ul class="s1">
-                    <li>
-                        <p><a href=""> 8 777 777 7777</a></p>
-                        <p><a href="">shop@faceit.kz</a></p>
-                    </li>
-                    <li>
-                        <p><a href="">ул. Улица, г. Нур-Султан</a></p>
-                    </li>
-                    <li>
-                        <p>С 09:00 до 20:00 </p>
-                        <p>без перерывов и выходных</p>
-                    </li>
-                </ul>
-            </div>
-            <div class="section2">
-                <ul class="s2">
-                    <li>
-                        <p class = "logo">Face It!</p>
-                    </li>
-                    <li>
-                        <ul class = "socmedia">
-                            <li><a href="">A</a></li>
-                            <li><a href="">B</a></li>
-                            <li><a href="">C</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="section3"></div>
-        </div>
-    </footer>
+	<footer>
+		
+	</footer>
 
 	<script src="{% static 'js/script.js' %}"></script>
 </body>
