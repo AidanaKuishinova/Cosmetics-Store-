@@ -220,10 +220,7 @@ ul li:hover .dropdown {
     border-radius: 0.5rem;
     width: 200px;
 }
-#yousearch{
-    color: #4d7799;
-    margin-top: 100%;
-}
+
 /* /1 */
 
 /* 2 */
@@ -604,13 +601,6 @@ button a:hover {
 
 .box a img{
     width: 350px;;
-}
-
-
-
-
-.white{
-    padding-top: 50px;
 }
 
 

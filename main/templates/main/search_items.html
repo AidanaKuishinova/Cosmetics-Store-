@@ -1,17 +1,68 @@
 {% load static %}
+
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>search results</title>
+    <title>
+        Поиск
+    </title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/styles.css'%}">
-
 </head>
-<body>
+
+<body style="height: 2000px;">
+    <header>
+        <a href="#" class="name">Face It!</a>
+        <ul class="navbar">
+            <li><a href="">ГЛАВНАЯ</a></li>
+            <li><a href="/filter">КАТАЛОГ</a>
+                <ul class="dropdown">
+                    <li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
+                            глаз</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a>
+                    </li>
+                    <li class="subcategories"><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И
+                            Мисты</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a>
+                    </li>
+                    <li class="subcategories"><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">БРЕНДЫ</a></li>
+            <li><a href="#">НОВИНКИ</a></li>
+            <li><a href="#">АКЦИИ</a></li>
+            <li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
+        </ul>
+
+        <div class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-search' id="search-icon"></i>
+            <i class='bx bx-cart' id="cart-icon"></i>
+            <i class='bx bx-user' id="user-icon"></i>
+        </div>
+        <div class="search_box">
+
+			<form method='POST' action="{% url 'searching_products' %}">
+				{% csrf_token %}
+				<input type="search" name="searched" id="" placeholder="Найти продукт...">
+				<button type="submit"><i class='bx bx-search' id="search-icon2"></i></button>
+			</form>
+		</div>
+    </header>
 
 
-<div class="white">
+    <script src="app.js"></script>
+
+
+<div style="margin-top: 100px">
     {% if searched %}
-        <h1>Вы искали {{searched}}</h1>
+        <h1 style="padding-bottom: 20px;text-align: center">Вы искали "{{searched}}"</h1>
         <div class="gallery">
             {% for item in items %}
             <div class="item">
