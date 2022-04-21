@@ -71,3 +71,10 @@ class RegisterUserView(CreateView):
     success_url = reverse_lazy('login')
     success_msg = "Пользователь успешно создан"
 
+def search_items(request):
+    if request.method == 'POST':
+        searched = request.POST.get('searched')
+        items = Product.objects.filter(title__iregex=searched)
+        return render(request, "main/search_items.html",{'searched':searched,'items':items})
+    else:
+        return render(request, "main/search_items.html", {})

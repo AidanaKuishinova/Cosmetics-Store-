@@ -26,4 +26,5 @@ urlpatterns = [
     path('cart/add/<uuid:id>/', views.add_to_cart, name='cartadd'),
     path('categories/<str:category>', views.categories, name="categories"),
     path('filter/', views.filter, name='filter'),
+    path('search_items', views.search_items, name='searching_products'),
 ]

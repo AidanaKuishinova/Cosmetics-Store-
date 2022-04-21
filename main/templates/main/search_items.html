@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>search results</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+
+</head>
+<body>
+
+
+<div class="white">
+    {% if searched %}
+        <h1>Вы искали {{searched}}</h1>
+        <div class="gallery">
+            {% for item in items %}
+            <div class="item">
+                {% static "images/products/" as folder %}
+                <div class="images">
+                    <img class="product_image" src="{{folder}}/{{item.image}}.jpg" />
+                </div>
+
+                <div class="product">
+
+                    <h1 class="product_title">{{item}}</h1>
+                    <h2 class="product_price">{{item.price}}₸</h2>
+
+
+                    <a href="{% url 'cartadd' id=item.id %}"><button class="addtocartbtn add">Add to Cart</button></a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+        <h1>Вы не ввели в поиск!</h1>
+    {% endif %}
+        </div>
+</body>
+</html>
