@@ -7,14 +7,16 @@
         Категории
     </title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+
+	<link rel="stylesheet" href="{% static 'css/stylesfilter.css'%}">
+	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
 </head>
 
 <body style="height: 2000px;">
     <header>
         <a href="#" class="name">Face It!</a>
         <ul class="navbar">
-            <li><a href="#">ГЛАВНАЯ</a></li>
+            <li><a href="/">ГЛАВНАЯ</a></li>
             <li><a href="/filter">КАТАЛОГ</a>
                 <ul class="dropdown">
                     <li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
@@ -61,12 +63,46 @@
 
 
 
+    <div class="white">
+        <div class="filter">
+        <h3>Сортировать</h3>
+        <div class="sorting">
+
+            <select name="" id="sort_type">
+                <option value="def">По умолчанию</option>
+                <option value="high">По убыванию цены</option>
+                <option value="low">По возрастанию цены</option>
+                <option value="new">По новизне</option>
+                <option value="asc">По названию</option>
+            </select>
+        </div>
+        <div class="price-input">
+            <div class="field">
+                <span>Мин</span>
+                <input type="number" class="input-min" id="min_value_of_price" min="{{minprice}}" value = "{{minprice}}">
+            </div>
+            <div class="separator">-</div>
+            <div class="field">
+                <span>Макс</span>
+                <input type="number" class="input-max" id="max_value_of_price" max="{{maxprice}}" value = "{{maxprice}}">
+            </div>
+        </div>
+        <div class="slider2">
+            <div class="progress"></div>
+        </div>
+        <div class="range-input">
+            <input type="range" class="range-min" min="0" max="{{maxprice}}" value={{minprice}}>
+            <input type="range" class="range-max" min="0" max="{{maxprice}}" value={{maxprice}}>
+        </div>
+    </div>
+        <div onclick="sorting_type()">Применить</div>
 
     <div style="margin-top: 20px">
+
         <h2 class="new">{{title}}</h2>
-        <div class="gallery">
+        <div class="gallery" id="gallery">
             {% for product in products %}
-            <div class="item">
+            <div class="item" data-title="{{product.title}}" data-price="{{product.price}}">
                 {% static "images/products/" as folder %}
                 <div class="images">
                     <img class="product_image" src="{{folder}}/{{product.image}}.jpg" />
@@ -85,11 +121,16 @@
         </div>
     </div>
 
-
+    </div>
 
     <footer>
-        
+
     </footer>
+      <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script src="{% static 'js/scroll.js' %}"></script>
+
+	<script src="{% static 'js/script.js' %}"></script>
+
 </body>
 
 

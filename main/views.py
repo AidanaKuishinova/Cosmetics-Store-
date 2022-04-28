@@ -24,10 +24,14 @@ def index(request):
 def categories(request, category):
     category2 = Category.objects.get(url=category)
     products=Product.objects.filter(category=category2)
-
+    prices=[]
+    for product in products:
+        prices.append(product.price)
     contex = {
         'title':category2.title,
         'products': products,
+        'minprice':min(prices),
+        'maxprice':max(prices)
     }
     return render(request, 'main/category.html', contex)
 

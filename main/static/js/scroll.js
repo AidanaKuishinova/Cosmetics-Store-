@@ -1,10 +1,12 @@
+
+
 const rangeInput = document.querySelectorAll(".range-input input"),
     priceInput = document.querySelectorAll(".price-input input"),
     progress = document.querySelector(".slider2 .progress");
+    var min_value_of_price=document.getElementById("min_value_of_price").value
+    progress.style.left = (min_value_of_price/ rangeInput[0].max) * 100 + "%";
 
-let priceGap = 1000;
-
-
+let priceGap = 10000;
 rangeInput.forEach(input => {
     input.addEventListener("input", e => {
         let minVal = parseInt(rangeInput[0].value),
@@ -26,3 +28,4 @@ rangeInput.forEach(input => {
 
     });
 });
+
