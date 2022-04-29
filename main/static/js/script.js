@@ -1,4 +1,7 @@
-
+let search = document.querySelector('.search_box')
+document.querySelector('#search-icon').onclick = () =>{
+	search.classList.toggle('active')
+}
 
 const myslide = document.querySelectorAll('.myslide'),
 	  dot = document.querySelectorAll('.dot');

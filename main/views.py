@@ -7,6 +7,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from .forms import AuthUserForm, RegisterUserForm
 from .models import Product,Category,ProductItem,Cart
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 def index(request):
@@ -76,9 +78,10 @@ class RegisterUserView(CreateView):
     success_msg = "Пользователь успешно создан"
 
 def search_items(request):
-    if request.method == 'POST':
-        searched = request.POST.get('searched')
-        items = Product.objects.filter(title__iregex=searched)
-        return render(request, "main/search_items.html",{'searched':searched,'items':items})
-    else:
-        return render(request, "main/search_items.html", {})
+    searched = request.POST.get('searched')
+    #items = Product.objects.filter(title__iregex=searched)
+    items = Product.objects.all()
+    p = Paginator(items, 12)
+    page = request.GET.get('page')
+    items_list = p.get_page(page)
+    return render(request, "main/search_items.html",{'searched':searched,'items_list':items_list})

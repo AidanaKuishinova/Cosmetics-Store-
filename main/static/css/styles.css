@@ -210,7 +210,7 @@ ul li:hover .dropdown {
 .search_box{
     position: absolute;
     top: 110%;
-    right: 1rem;
+    right: -100%;
 }
 
 .search_box input{
@@ -219,6 +219,10 @@ ul li:hover .dropdown {
     outline: none;
     border-radius: 0.5rem;
     width: 200px;
+}
+.search_box.active{
+    right: 1rem;
+    transition: 0.2s;
 }
 
 /* /1 */
