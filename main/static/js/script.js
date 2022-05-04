@@ -144,6 +144,13 @@ function slidefun(n) {
 	dot[counter - 1].className += " active";
 }
 
+var header=document.getElementById("header")
 
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    console.log(header)
+    if (scroll>650) { header.style.background=" -webkit-linear-gradient(right, #F9D1D9, #A0B9CE)"}
+    else {header.style.background="transparent"}
+});
 
 

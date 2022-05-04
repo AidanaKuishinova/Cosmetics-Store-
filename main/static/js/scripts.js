@@ -5,7 +5,7 @@ slidefun(counter);
 
 let timer = setInterval(autoSlide, 8000);
 function autoSlide() {
-	counter += 1;
+	counter += 1;7
 	slidefun(counter);
 }
 function plusSlides(n) {
@@ -41,4 +41,3 @@ function slidefun(n) {
 	myslide[counter - 1].style.display = "block";
 	dot[counter - 1].className += " active";
 }
-

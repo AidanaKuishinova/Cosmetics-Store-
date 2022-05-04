@@ -22,6 +22,8 @@ def index(request):
 
     return  render(request, 'main/index.html',context)
 
+def inst(request):
+    return render(request, 'main/inst.html')
 
 def categories(request, category):
     category2 = Category.objects.get(url=category)
@@ -42,7 +44,8 @@ def get_cart(request):
     user = User.objects.get(username=request.user.username)
     cart = Cart.objects.get(user=user)
     items=ProductItem.objects.filter(cart=cart)
-
+    for item in items:
+        print(item.__dict__)
     contex={
          'items':items
      }
