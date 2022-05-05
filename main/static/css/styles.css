@@ -964,3 +964,21 @@ position:absolute;
      color:#fff;
 
 }
+
+.pagination {
+    width: 80%;
+    margin:0 auto;
+    text-align: center;
+}
+.pagination a{
+    margin: auto;
+    padding: 10px;
+    font-size: 20px;
+    color: var(--rainblue);
+    text-decoration: none;
+}
+.pagination a:hover{
+    background-color: var(--lpink);
+    color: white;
+    transition: 0.2s;
+}
