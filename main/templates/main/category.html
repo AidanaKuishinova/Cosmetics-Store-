@@ -13,42 +13,38 @@
 </head>
 
 <body style="height: 2000px;">
-    <header>
-        <a href="#" class="name">Face It!</a>
-        <ul class="navbar">
-            <li><a href="/">ГЛАВНАЯ</a></li>
-            <li><a href="/filter">КАТАЛОГ</a>
-                <ul class="dropdown">
-                    <li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
-                            глаз</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a>
-                    </li>
-                    <li class="subcategories"><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И
-                            Мисты</a></li>
-                    <li class="subcategories"><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a>
-                    </li>
-                    <li class="subcategories"><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="#">БРЕНДЫ</a></li>
-            <li><a href="#">НОВИНКИ</a></li>
-            <li><a href="#">АКЦИИ</a></li>
-            <li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
-        </ul>
+    <header id="header" class="gradient">
 
-        <div class="icons">
-            <i class='bx bx-menu' id="menu-icon"></i>
-            <i class='bx bx-search' id="search-icon"></i>
-            <i class='bx bx-cart' id="cart-icon"></i>
-            <i class='bx bx-user' id="user-icon"></i>
-        </div>
-        <div class="search_box">
+    <a href="/" class="name">Face It!</a>
+      <ul class="navbar">
+        <li><a href="/">ГЛАВНАЯ</a></li>
+  			<li><a href="#">КАТАЛОГ</a>
+          <ul class="dropdown">
+            <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И Мисты</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a></li>
+             <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
+          </ul>
+          </li>
+  			<li><a href="/#popular">ПОПУЛЯРНОЕ</a></li>
+  			<li><a href="/#new">НОВИНКИ</a></li>
+  			<li><a href="/#sales">АКЦИИ</a></li>
+
+      </ul>
+
+		<div class="icons">
+			<i class='bx bx-menu' id="menu-icon"></i>
+			<i class='bx bx-search' id="search-icon"></i>
+			<a href="cart/"><i class='bx bx-cart' id="cart-icon"></i></a>
+			<i class='bx bx-user' id="user-icon"></i>
+		</div>
+		<div class="search_box">
 
 			<form method='POST' action="{% url 'searching_products' %}">
 				{% csrf_token %}
@@ -56,7 +52,7 @@
 				<button type="submit"><i class='bx bx-search' id="search-icon2"></i></button>
 			</form>
 		</div>
-    </header>
+	</header>
 
 
     <script src="app.js"></script>

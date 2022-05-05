@@ -24,6 +24,7 @@ urlpatterns = [
     path('logout/', views.MyLogoutView.as_view(), name='logout'),
     path('cart/', views.get_cart, name='cart'),
     path('cart/add/<uuid:id>/', views.add_to_cart, name='cartadd'),
+    path('cart/delete/<uuid:id>/', views.delete_from_cart, name='delete'),
     path('categories/<str:category>', views.categories, name="categories"),
     path('filter/', views.filter, name='filter'),
     path('search_items/', views.search_items, name='searching_products'),

@@ -15,10 +15,10 @@
 
 	<header id="header" class="nonegradient">
 
-    <a href="#" class="name">Face It!</a>
+    <a href="/" class="name">Face It!</a>
       <ul class="navbar">
         <li><a href="/">ГЛАВНАЯ</a></li>
-  			<li><a href="/filter">КАТАЛОГ</a>
+  			<li><a href="#">КАТАЛОГ</a>
           <ul class="dropdown">
             <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
              <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
@@ -32,9 +32,9 @@
              <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
           </ul>
           </li>
-  			<li><a href="#">БРЕНДЫ</a></li>
-  			<li><a href="#">НОВИНКИ</a></li>
-  			<li><a href="#">АКЦИИ</a></li>
+  			<li><a href="#popular">ПОПУЛЯРНОЕ</a></li>
+  			<li><a href="#new">НОВИНКИ</a></li>
+  			<li><a href="#sales">АКЦИИ</a></li>
 
       </ul>
 
@@ -117,7 +117,7 @@
 		<!-- /onclick js -->
 	</div>
 
-	<h2 class="new">НОВИНКИ</h2>
+	<h2 id="new" class="new">НОВИНКИ</h2>
 	<div class="gallery">
 		{% for product in products %}
 		<div class="item">
@@ -139,7 +139,7 @@
 
 	</div>
 
-	<div class="boxes">
+	<div id="sales" class="boxes">
 		<div class="box"><a href="">
 				<img src="{% static 'images/а1.png' %}" alt="" class="inbox"></a>
 		</div>
@@ -152,7 +152,7 @@
 	</div>
 
 
-	<h2 class="new">ПОПУЛЯРНОЕ</h2>
+	<h2 id="popular" class="new">ПОПУЛЯРНОЕ</h2>
 	<div class="gallery">
 		{% for product in popular %}
 		<div class="item">
@@ -161,7 +161,7 @@
 				<img class="product_image" src="{{folder}}/{{product.image}}.jpg" />
 			</div>
 
-			<div class="product">v
+			<div class="product">
 
 				<a href="{% url 'product_detail' id=product.id %}"><h1 class="product_title">{{product.title}}</h1>
 				<h2 class="product_price">{{product.price}}₸</h2>

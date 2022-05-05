@@ -84,10 +84,10 @@ header .navigation .navigation-items a:hover:before {
 
 /* 2 */
 .slider {
+    height: 100vh;
     position: relative;
     width: 100%;
-    background: #2c3e50;
-    /* darckblue */
+    background: -webkit-linear-gradient(right, #F9D1D9, #A0B9CE);
     transition: 0.5s ease-in-out;
 }
 

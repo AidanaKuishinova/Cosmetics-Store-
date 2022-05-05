@@ -44,12 +44,18 @@ def get_cart(request):
     user = User.objects.get(username=request.user.username)
     cart = Cart.objects.get(user=user)
     items=ProductItem.objects.filter(cart=cart)
+    all_products=0
     for item in items:
         print(item.__dict__)
+        quantity=item.quantity
+        price=item.product.price
+        all_products=all_products+(quantity*price)
     contex={
-         'items':items
+         'items':items,
+        'allproducts':all_products
      }
     return render(request,"main/cart.html",contex)
+
 
 def add_to_cart(request,id):
     print(id)
@@ -57,9 +63,26 @@ def add_to_cart(request,id):
     product=Product.objects.get(id=id)
     cart=Cart.objects.get(user=user)
     product_item=ProductItem(product=product,cart=cart)
-    product_item.save()
+    if ProductItem.objects.filter(product=product,cart=cart).exists():
+        ps=ProductItem.objects.filter(product=product,cart=cart)
+        for p in ps:
+            p.quantity+=1
+            p.save()
+            print("222")
+    else:
+        product_item.save()
 
-    return redirect("index")
+    return redirect("cart")
+
+def delete_from_cart(request,id):
+    print(id)
+    user = User.objects.get(username=request.user.username)
+    product = Product.objects.get(id=id)
+    cart = Cart.objects.get(user=user)
+
+    ProductItem.objects.filter(product=product,cart=cart).delete()
+    return redirect("cart")
+
 
 def filter (request):
     return render(request,"main/filter.html")

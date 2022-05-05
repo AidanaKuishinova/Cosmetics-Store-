@@ -23,6 +23,17 @@ header{
 }
 .gradient{background: -webkit-linear-gradient(right, #F9D1D9, #A0B9CE);}
 
+table{
+    table-layout: fixed;
+    white-space: normal;
+}
+
+td{
+    word-wrap:break-word;
+    white-space: normal;
+    word-break: break-all;
+}
+
 .name{
   display: flex;
   align-items: center;
