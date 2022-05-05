@@ -4,75 +4,102 @@
 
 <head>
     <title>
-        Категории
+        Поиск
     </title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
-	<link rel="stylesheet" href="{% static 'css/stylesfilter.css'%}">
-	<link rel="stylesheet" href="{% static 'css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'css/styles.css'%}">
 </head>
 
-<body>
-    <header id="header" class="gradient">
+<body >
+    <header>
+        <a href="#" class="name">Face It!</a>
+        <ul class="navbar">
+            <li><a href="">ГЛАВНАЯ</a></li>
+            <li><a href="/filter">КАТАЛОГ</a>
+                <ul class="dropdown">
+                    <li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
+                            глаз</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a>
+                    </li>
+                    <li class="subcategories"><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И
+                            Мисты</a></li>
+                    <li class="subcategories"><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a>
+                    </li>
+                    <li class="subcategories"><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">БРЕНДЫ</a></li>
+            <li><a href="#">НОВИНКИ</a></li>
+            <li><a href="#">АКЦИИ</a></li>
+            <li><a href="#">ПОДАРОЧНЫЕ КАРТЫ</a></li>
+        </ul>
 
-    <a href="/" class="name">Face It!</a>
-      <ul class="navbar">
-        <li><a href="/">ГЛАВНАЯ</a></li>
-  			<li><a href="#">КАТАЛОГ</a>
-          <ul class="dropdown">
-            <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И Мисты</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
-          </ul>
-          </li>
-  			<li><a href="/#popular">ПОПУЛЯРНОЕ</a></li>
-  			<li><a href="/#new">НОВИНКИ</a></li>
-  			<li><a href="#sales">АКЦИИ</a></li>
-
-      </ul>
-
-		<div class="icons">
-			<i class='bx bx-menu' id="menu-icon"></i>
-			<i class='bx bx-search' id="search-icon"></i>
-			<a href="cart/"><i class='bx bx-cart' id="cart-icon"></i></a>
-			<i class='bx bx-user' id="user-icon"></i>
-		</div>
-		<div class="search_box">
+        <div class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-search' id="search-icon"></i>
+            <i class='bx bx-cart' id="cart-icon"></i>
+            <i class='bx bx-user' id="user-icon"></i>
+        </div>
+        <div class="search_box">
 
 			<form method='POST' action="{% url 'searching_products' %}">
 				{% csrf_token %}
-				<input type="search" name="searched" id="" placeholder="Найти продукт...">
-				<button type="submit"><i class='bx bx-search' id="search-icon2"></i></button>
+				<input type="search" name="searched"  placeholder="Найти продукт..." required>
 			</form>
 		</div>
-	</header>
+    </header>
 
-    <div class="content_product_detail">
-        <div id="detail_photo">
-            {% static "images/products/" as folder %}
-            <img style="height: 100%" src="{{folder}}/{{data.image}}.jpg" /></div>
-        <div id="detail_info">
-            <p style="font-size: 30px;margin-top: 20px;font-weight: bold">{{data.title}}</p>
-            <p style="font-size: 40px;">{{data.price}}₸</p>
-            <p class="detail_text">Описание:</p><p class="detail_text_1">{{data.description}}</p>
-            <p class="detail_text">Бренд:</p><p class="detail_text_1">{{data.brand}}</p>
-            <p class="detail_text">Страна:</p><p class="detail_text_1">{{data.country}}</p>
-            <p class="detail_text">Состав:</p><p class="detail_text_1">{{data.ingredients}}</p>
-            <p class="detail_text">Подходит для типов кожи:</p><p class="detail_text_1">{{data.type_of_skin}}</p>
-            <p class="detail_text">Борется с:</p><p class="detail_text_1">{{data.problems}}</p>
-            <br>
-            <a href="{% url 'cartadd' id=data.id %}"><button class="addtocartbtn1 add">Add to Cart</button></a>
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+<div style="margin-top: 100px">
+        <h1 style="padding-bottom: 20px;text-align: center">Вы искали "{{searched}}"</h1>
+        <div class="gallery">
+            {% for item in items_list %}
+            <div class="item">
+                {% static "images/products/" as folder %}
+                <div class="images">
+                    <img class="product_image" src="{{folder}}/{{item.image}}.jpg" />
+                </div>
+
+                <div class="product">
+
+                    <a href="{% url 'product_detail' id=item.id %}"><h1 class="product_title">{{item}}</h1>
+                    <h2 class="product_price">{{item.price}}₸</h2>
+
+
+                    <a href="{% url 'cartadd' id=item.id %}"><button class="addtocartbtn add">Add to Cart</button></a>
+                </div>
+            </div>
+            {% endfor %}
+
+
+
         </div>
-    </div>
+</div>
+<div class="pagination">
+{% if page_obj.has_previous %}
+    <a  href="?page=1">&laquo;Первая</a>
+    <a href="?page={{ page_obj.previous_page_number}}">Назад</a>
 
 
+{% endif %}
+
+    <p style="font-size: 20px;display: inline;color:#A0B9CEFF">Page {{ page_obj.number }} of {{page_obj.paginator.num_pages}}</p>
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number}}">Далее</a>
+    <a href="?page={{page_obj.paginator.num_pages}}">Последняя&raquo;</a>
+
+{% endif %}
+</div>
+    <br>
 <footer class="footer-distributed">
 
 			<div class="footer-left">
@@ -136,13 +163,5 @@
 			</div>
 
 		</footer>
-      <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-      <script src="{% static 'js/scroll.js' %}"></script>
-
-	<script src="{% static 'js/script.js' %}"></script>
-
 </body>
-
-
-
 </html>
