@@ -92,3 +92,7 @@ class SearchSuccesView(ListView):
     def get_queryset(self):
         search_text = self.request.path.split('/')[-1]
         return Product.objects.filter(title__iregex=search_text)
+
+def product_detail(request,id):
+    product = Product.objects.get(id=id)
+    return render(request,'main/product_detail.html', {'data':product})

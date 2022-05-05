@@ -71,7 +71,7 @@
 
                 <div class="product">
 
-                    <h1 class="product_title">{{item}}</h1>
+                    <a href="{% url 'product_detail' id=item.id %}"><h1 class="product_title">{{item}}</h1>
                     <h2 class="product_price">{{item.price}}₸</h2>
 
 

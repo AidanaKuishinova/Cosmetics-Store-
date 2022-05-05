@@ -29,4 +29,5 @@ urlpatterns = [
     path('search_items/', views.search_items, name='searching_products'),
     path('search_success/<str:text>', views.SearchSuccesView.as_view(), name='search_success'),
     path('inst/', views.inst, name='inst'),
+    path('product/<uuid:id>',views.product_detail, name = 'product_detail')
 ]
