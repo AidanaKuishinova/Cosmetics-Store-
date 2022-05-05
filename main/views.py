@@ -82,9 +82,13 @@ class RegisterUserView(CreateView):
 
 def search_items(request):
     searched = request.POST.get('searched')
-    #items = Product.objects.filter(title__iregex=searched)
-    items = Product.objects.all()
-    p = Paginator(items, 12)
-    page = request.GET.get('page')
-    items_list = p.get_page(page)
-    return render(request, "main/search_items.html",{'searched':searched,'items_list':items_list})
+    return redirect(f'/search_success/{searched}', searched=searched)
+
+class SearchSuccesView(ListView):
+    template_name="main/search_items.html"
+    paginate_by = 12
+    context_object_name = 'items_list'
+
+    def get_queryset(self):
+        search_text = self.request.path.split('/')[-1]
+        return Product.objects.filter(title__iregex=search_text)
