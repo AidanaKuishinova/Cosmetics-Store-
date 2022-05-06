@@ -105,6 +105,12 @@ class RegisterUserView(CreateView):
 
 def search_items(request):
     searched = request.POST.get('searched')
+    print(searched)
+    request.session['searched'] = searched
+    contex = {
+
+        'searched':searched
+    }
     return redirect(f'/search_success/{searched}', searched=searched)
 
 class SearchSuccesView(ListView):
@@ -114,7 +120,7 @@ class SearchSuccesView(ListView):
 
     def get_queryset(self):
         search_text = self.request.path.split('/')[-1]
-        return Product.objects.filter(title__iregex=search_text)
+        return Product.objects.filter(description__iregex=search_text)
 
 def product_detail(request,id):
     product = Product.objects.get(id=id)
