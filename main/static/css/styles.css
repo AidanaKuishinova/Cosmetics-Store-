@@ -433,9 +433,6 @@ button:hover {
     color: black
 }
 
-button a:hover {
-    color: black;
-}
 
 @-webkit-keyframes zoomin {
     from {
@@ -824,9 +821,7 @@ width:140px !important;
 
 /* Footer Center */
 
-.footer-distributed .footer-center{
-	width: 35%;
-}
+
 
 .footer-distributed .footer-center i{
 	background-color:  #33383b;
@@ -847,8 +842,9 @@ width:140px !important;
 
 }
 .footer-distributed .footer-center div{
-align-items:center;
-  display: flex;
+    align-items: flex-start;
+    display: flex;
+
 }
 
 
@@ -889,7 +885,8 @@ align-items:center;
 /* Footer Right */
 
 .footer-distributed .footer-right{
-	width: 20%;
+	flex-direction: column;
+    margin-left: 500px;
 }
 
 .footer-distributed .footer-company-about{

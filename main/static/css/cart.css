@@ -228,10 +228,11 @@ ul li:hover .dropdown {
     margin-top: 20px;
     padding: 5px 10px;
     transition: 0.3s ease-in-out;
+
 }
 
 .normal:hover{
-    background-color: var(--gp);
+    background-color:#F9D1D9;
     color: white;
 }
 

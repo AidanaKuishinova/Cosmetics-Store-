@@ -628,3 +628,265 @@ input[type="range"]::-moz-slider-thumb{
     border: none;
     background: var(--drb);
 }
+
+/*-------CATEGORY------*/
+
+.filter {
+    width: 300px;
+    background-color: #F9D1D9;
+    border-radius: 10px;
+    padding: 20px 25px 40px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+.hey {
+    text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.element1 {
+    display: inline-block;
+    float: left;
+    margin-left: 70px;
+    z-index: 99;;
+}
+
+.element2 {
+    display: inline-block;
+}
+
+
+.row {
+    position: relative;
+    margin: 5px 0 5px;
+    text-align: left;
+}
+
+select {
+    width: 20em;
+    height: auto;
+}
+
+.multiselect-dropdown {
+    display: inline-block;
+    border-radius: 5px;
+    border: none;
+    font-size: 15px;
+    padding: 5px 5px 5px 5px;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    transition: 0.5s ease-in-out;
+}
+
+.multiselect-dropdown span.optext {
+    margin-right: 0.5em;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    display: inline-block;
+
+}
+
+.multiselect-dropdown span.optext {
+    background-color: var(--dpink);
+    color: white;
+    padding: 10px 5px;
+
+}
+
+.multiselect-dropdown-list-wrapper {
+    z-index: 100;
+    padding: 10px 15px;
+    display: block;
+    margin-top: 10px;
+    border-radius: 4px;
+    border: 1px solid lightgrey
+}
+
+
+.sortbtn:hover {
+    background-color: var(--rainblue);
+    color: white
+}
+
+/*-------------PAYMENT-------------*/
+
+.delivery{
+    min-height: 100vh;
+    background: var(--rainblue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    padding-bottom: 60px;
+}
+
+.delivery form{
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.1);
+    padding: 20px;
+    width: 600px;
+    padding-top: 160px;
+}
+
+.delivery form .inputBox{
+    margin-top: 20px;
+}
+
+.delivery form .inputBox span{
+    display: block;
+    color:#999;
+    padding-bottom: 5px;
+}
+
+.delivery form .inputBox input,
+.delivery form .inputBox select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border:1px solid rgba(0,0,0,.3);
+    color:#444;
+}
+
+.delivery form .flexbox{
+    display: flex;
+    gap:15px;
+}
+
+.delivery form .flexbox .inputBox{
+    flex:1 1 150px;
+}
+
+.delivery form .submit-btn{
+    width: 100%;
+    background: -webkit-linear-gradient(right, #F9D1D9, #A0B9CE);
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    color:#fff;
+    border-radius: 10px;
+    border-color:#fff;
+    cursor: pointer;
+    transition: .2s linear;
+}
+
+.delivery form .submit-btn:hover{
+    letter-spacing: 2px;
+    opacity: .8;
+}
+
+.delivery .card-container{
+    margin-bottom: -150px;
+    position: relative;
+    height: 250px;
+    width: 400px;
+}
+
+.delivery .card-container .front{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0; left: 0;
+    background: -webkit-linear-gradient(right, #F9D1D9, #A0B9CE);
+    border-radius: 5px;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    padding:20px;
+    transform:perspective(1000px) rotateY(0deg);
+    transition:transform .4s ease-out;
+}
+
+.delivery .card-container .front .image{
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.delivery .card-container .front .image img{
+    height: 50px;
+}
+
+.delivery .card-container .front .card-number-box{
+    padding:30px 0;
+    font-size: 22px;
+    color:#fff;
+}
+
+.delivery .card-container .front .flexbox{
+    display: flex;
+}
+
+.delivery .card-container .front .flexbox .box:nth-child(1){
+    margin-right: auto;
+}
+
+.delivery .card-container .front .flexbox .card{
+    font-size: 15px;
+    color:#fff;
+}
+
+.delivery .card-container .back{
+    position: absolute;
+    top:0; left: 0;
+    height: 100%;
+    width: 100%;
+    background: -webkit-linear-gradient(right, #F9D1D9, #A0B9CE);
+    border-radius: 5px;
+    padding: 20px 0;
+    text-align: right;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgba(0,0,0,.2);
+    transform:perspective(1000px) rotateY(180deg);
+    transition:transform .4s ease-out;
+}
+
+.delivery .card-container .back .stripe{
+    background: #000;
+    width: 100%;
+    margin: 10px 0;
+    height: 50px;
+}
+
+.delivery .card-container .back .card{
+    padding: 0 20px;
+}
+
+.delivery .card-container .back .card span{
+    color:#fff;
+    font-size: 15px;
+}
+
+.delivery .card-container .back .card .cvv-box{
+    height: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    color:#333;
+    background: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.delivery .card-container .back .card img{
+    margin-top: 30px;
+    height: 30px;
+}
+
+.delivery h1{
+    margin: 20px 0 20px;
+}
+
+.delivery h1 a:active, a:visited,a:hover{
+    color: white;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+
+

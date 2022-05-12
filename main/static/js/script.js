@@ -20,7 +20,47 @@ function sorting_type(){
     sortAtoZ()
     }
     sort_by_range()
+    brands()
+    country()
 }
+function brands() {
+    let nav = document.querySelector('#gallery')
+    var values = $('#brands_select').val();
+    if (values != null){
+     for(let i = 0; i < nav.children.length; i++){
+     var isInBrand=false;
+        for(let j = 0; j < values.length; j++){
+            if(values[j].trim()==nav.children[i].getAttribute('data-brand').trim()){
+                isInBrand=true
+                break
+            }
+        }
+        if(isInBrand==false){
+        nav.children[i].style.display = "none"
+        }
+
+     }
+    }
+
+}
+function country() {
+    var values = $('#countries_select').val();
+    let nav = document.querySelector('#gallery')
+     for(let i = 0; i < nav.children.length; i++){
+     var isInBrand=false;
+        for(let j = 0; j < values.length; j++){
+            if(values[j].trim()==nav.children[i].getAttribute('data-country').trim()){
+                isInBrand=true
+                break
+            }
+        }
+        if(isInBrand==false){
+        nav.children[i].style.display = "none"
+        }
+
+     }
+}
+
 
 function sort_by_range(){
      var min_value_of_price = +document.getElementById('min_value_of_price').value
@@ -34,7 +74,7 @@ let nav = document.querySelector('#gallery')
 
 }
   for(let i = 0; i < nav.children.length; i++){
-      if(+nav.children[i].getAttribute('data-price') < min_value_of_price && +nav.children[i].getAttribute('data-price') < max_value_of_price){
+      if(+nav.children[i].getAttribute('data-price') < min_value_of_price || +nav.children[i].getAttribute('data-price') > max_value_of_price){
 //        replacedNode = nav.removeChild(nav.children[i])
 
         console.log(+nav.children[i].getAttribute('data-price'))

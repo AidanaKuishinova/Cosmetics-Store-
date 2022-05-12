@@ -25,17 +25,36 @@ def index(request):
 def inst(request):
     return render(request, 'main/inst.html')
 
+
+def payment(request):
+    return render(request, 'main/payment.html')
+
 def categories(request, category):
     category2 = Category.objects.get(url=category)
     products=Product.objects.filter(category=category2)
     prices=[]
+    brands=set()
+    countries = set()
+
     for product in products:
-        prices.append(product.price)
+        try:
+            prices.append(product.price)
+            if "Ингредиенты:" in product.brand:
+                continue
+            brands.add(product.brand)
+            country = product.country
+            # country = country.strip()
+            countries.add(country)
+        except:
+            continue
+            pass
     contex = {
         'title':category2.title,
         'products': products,
         'minprice':min(prices),
-        'maxprice':max(prices)
+        'maxprice':max(prices),
+        'brands':brands,
+        'countries':countries
     }
     return render(request, 'main/category.html', contex)
 
@@ -125,3 +144,4 @@ class SearchSuccesView(ListView):
 def product_detail(request,id):
     product = Product.objects.get(id=id)
     return render(request,'main/product_detail.html', {'data':product})
+
