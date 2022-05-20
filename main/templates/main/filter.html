@@ -147,7 +147,27 @@
 
     </div>
 
+ <div class="gallery" id="gallery" style="width:900px;">
+                {% for product in products %}
 
+                <div class="item" data-title="{{product.title}}" data-price="{{product.price}}" data-brand="{{product.brand}}" data-country="{{product.country}}">
+                    {% static "images/products/" as folder %}
+                    <div class="images">
+                        <img class="product_image" src="{{folder}}/{{product.image}}.jpg" />
+                    </div>
+
+                    <div class="product">
+
+                       <a href="{% url 'product_detail' id=product.id %}"><h1 class="product_title">{{product.title}}</h1>
+                        <h2 class="product_price">{{product.price}}₸</h2>
+
+
+                        <a href="{% url 'cartadd' id=product.id %}"><button class="addtocartbtn add">Add to
+                                Cart</button></a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
 
 <footer class="footer-distributed">
 

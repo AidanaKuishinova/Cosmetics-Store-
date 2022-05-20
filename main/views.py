@@ -58,6 +58,8 @@ def categories(request, category):
     }
     return render(request, 'main/category.html', contex)
 
+def category(request):
+    return render(request, 'main/category.html', contex)
 
 def get_cart(request):
     user = User.objects.get(username=request.user.username)
@@ -103,8 +105,14 @@ def delete_from_cart(request,id):
     return redirect("cart")
 
 
-def filter (request):
-    return render(request,"main/filter.html")
+def register(request):
+    username=request.POST.get("username")
+    password = request.POST.get("password")
+    user=User(username=username)
+    user.set_password(password)
+    user.save()
+
+    return redirect("login")
 
 class MyLoginView(LoginView):
     template_name = "main/login.html"

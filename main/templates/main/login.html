@@ -42,7 +42,8 @@
                      Не зарегистрированы?</br><a href="">Зарегистрироваться сейчас</a>
                   </div>
                </form>
-               <form action="#" class="signup">
+               <form action="/register/" method="post" class="signup">
+                  {%csrf_token%}
                   <div class="field">
                      <input type="text"  name="username" placeholder="логин" required>
                   </div>
