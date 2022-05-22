@@ -7,12 +7,17 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.models import User
 from .forms import AuthUserForm, RegisterUserForm
 from .models import Product,Category,ProductItem,Cart
+from chat.models import Thread
 from django.core.paginator import Paginator
 
 
 # Create your views here.
 def index(request):
-    context={}
+    threads = collects_threads(request)
+
+    context={
+        'Threads':threads
+    }
     products=Product.objects.all()
     products=list(products)
     random.shuffle(products)
@@ -35,6 +40,8 @@ def categories(request, category):
     prices=[]
     brands=set()
     countries = set()
+    threads = collects_threads(request)
+
 
     for product in products:
         try:
@@ -54,7 +61,9 @@ def categories(request, category):
         'minprice':min(prices),
         'maxprice':max(prices),
         'brands':brands,
-        'countries':countries
+        'countries':countries,
+        'Threads': threads
+
     }
     return render(request, 'main/category.html', contex)
 
@@ -153,3 +162,34 @@ def product_detail(request,id):
     product = Product.objects.get(id=id)
     return render(request,'main/product_detail.html', {'data':product})
 
+def chatt(request):
+    return render(request, "main/chat.html")
+
+def main(request):
+    threads = collects_threads(request)
+    context = {
+        'Threads': threads
+    }
+    print(threads)
+    return render(request, "main/main.html", context)
+
+def collects_threads(request):
+    users = User.objects.all()
+
+    for user in users:
+        if request.user != user:
+            try:
+                thread = Thread.objects.get(first_person=request.user, second_person=user)
+                print(thread)
+            except:
+                try:
+                    thread = Thread(first_person=request.user, second_person=user)
+                    thread2 = Thread.objects.get(first_person=user, second_person=request.user)
+                except:
+                    thread.save()
+                    pass
+                pass
+
+    threads = Thread.objects.by_user(user=request.user).prefetch_related('chatmessage_thread').order_by(
+        'timestamp').filter(first_person=request.user, second_person=User.objects.get(username="admin"))
+    return threads
