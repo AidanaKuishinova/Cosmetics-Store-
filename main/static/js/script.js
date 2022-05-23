@@ -26,7 +26,8 @@ function sorting_type(){
 function brands() {
     let nav = document.querySelector('#gallery')
     var values = $('#brands_select').val();
-    if (values != null){
+
+    if (values.length != 0){
      for(let i = 0; i < nav.children.length; i++){
      var isInBrand=false;
         for(let j = 0; j < values.length; j++){
@@ -46,6 +47,7 @@ function brands() {
 function country() {
     var values = $('#countries_select').val();
     let nav = document.querySelector('#gallery')
+    if (values.length != 0){
      for(let i = 0; i < nav.children.length; i++){
      var isInBrand=false;
         for(let j = 0; j < values.length; j++){
@@ -58,7 +60,7 @@ function country() {
         nav.children[i].style.display = "none"
         }
 
-     }
+     }}
 }
 
 

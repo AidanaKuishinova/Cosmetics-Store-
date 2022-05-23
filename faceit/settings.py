@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'django_private_chat2.apps.DjangoPrivateChat2Config',
+    # 'django_private_chat2.apps.DjangoPrivateChat2Config',
 
     'django_filters',
     'channels',

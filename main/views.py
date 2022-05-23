@@ -72,7 +72,11 @@ def category(request):
 
 def get_cart(request):
     user = User.objects.get(username=request.user.username)
-    cart = Cart.objects.get(user=user)
+    try:
+        cart = Cart.objects.get(user=user)
+    except:
+        cart=Cart(user=user,amount=5,price=5000)
+        cart.save()
     items=ProductItem.objects.filter(cart=cart)
     all_products=0
     for item in items:
@@ -163,17 +167,6 @@ def product_detail(request,id):
     return render(request,'main/product_detail.html', {'data':product})
 
 def chatt(request):
-    return render(request, "main/chat.html")
-
-def main(request):
-    threads = collects_threads(request)
-    context = {
-        'Threads': threads
-    }
-    print(threads)
-    return render(request, "main/main.html", context)
-
-def collects_threads(request):
     users = User.objects.all()
 
     for user in users:
@@ -190,6 +183,42 @@ def collects_threads(request):
                     pass
                 pass
 
-    threads = Thread.objects.by_user(user=request.user).prefetch_related('chatmessage_thread').order_by(
-        'timestamp').filter(first_person=request.user, second_person=User.objects.get(username="admin"))
+
+    threads = Thread.objects.by_user(user=request.user).prefetch_related('chatmessage_thread').order_by('timestamp')
+
+    context={
+        'Threads':threads
+    }
+    print(threads)
+    return render(request, "main/admin chat.html",context)
+
+def main(request):
+    threads = collects_threads(request)
+    context = {
+        'Threads': threads
+    }
+    print(threads)
+    return render(request, "main/main.html", context)
+
+def collects_threads(request):
+    users = User.objects.all()
+    try:
+        for user in users:
+            if request.user != user:
+                try:
+                    thread = Thread.objects.get(first_person=request.user, second_person=user)
+                    print(thread)
+                except:
+                    try:
+                        thread = Thread(first_person=request.user, second_person=user)
+                        thread2 = Thread.objects.get(first_person=user, second_person=request.user)
+                    except:
+                        thread.save()
+                        pass
+                    pass
+
+        threads = Thread.objects.by_user(user=request.user).prefetch_related('chatmessage_thread').order_by(
+            'timestamp').filter(first_person=request.user, second_person=User.objects.get(username="admin"))
+    except:
+        return redirect("login")
     return threads

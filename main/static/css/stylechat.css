@@ -287,7 +287,7 @@ color:white;
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-    bottom: 90px;
+    bottom: 115px;
     cursor: pointer;
 }
 
@@ -1125,6 +1125,7 @@ position:absolute;
 }
 .chatbox-message-form {
 	display: flex;
+    justify-content: space-between;
 	align-items: center;
 	background: #F5F5F5;
 	border-radius: .5rem;

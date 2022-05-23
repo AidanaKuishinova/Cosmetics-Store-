@@ -34,7 +34,7 @@ urlpatterns = [
     path('inst/', views.inst, name='inst'),
     path('product/<uuid:id>',views.product_detail, name = 'product_detail'),
     path('payment/',views.payment, name = 'payment'),
-    path('chatt/', views.chatt, name='chatt'),
-path('main/', views.main, name='main'),
-path('chat/', messages_page, name='chat'),
+    path('admin-chat/', views.chatt, name='chatt'),
+
+
 ]

@@ -9,34 +9,40 @@
 
 	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 	<link rel="stylesheet" href="{% static 'css/stylechat.css'%}">
+	<link rel="stylesheet" href="{% static 'css/media.css'%}">
 </head>
 
 <body style="height: 2000px;">
 
 	<header id="header" class="nonegradient">
 
-    <a href="/" class="name">Face It!</a>
-      <ul class="navbar">
-        <li><a href="/">ГЛАВНАЯ</a></li>
-  			<li><a href="#">КАТАЛОГ</a>
-          <ul class="dropdown">
-            <li class="subcategories" ><a href="{% url 'categories' category='maski' %}">Маски</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для глаз</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И Мисты</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a></li>
-             <li class="subcategories" ><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a></li>
-          </ul>
-          </li>
-  			<li><a href="#popular">ПОПУЛЯРНОЕ</a></li>
-  			<li><a href="#new">НОВИНКИ</a></li>
-  			<li><a href="#sales">АКЦИИ</a></li>
+		<a href="/" class="name">Face It!</a>
+		<ul class="navbar">
+			<li><a href="/">ГЛАВНАЯ</a></li>
+			<li><a href="#">КАТАЛОГ</a>
+				<ul class="dropdown">
+					<li class="subcategories"><a href="{% url 'categories' category='maski' %}">Маски</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-glaz' %}">Уход для
+							глаз</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='uhod-dlya-gub' %}">Уход для губ</a>
+					</li>
+					<li class="subcategories"><a href="{% url 'categories' category='SPF' %}">SPF защита</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='kremy-geli' %}">Кремы/гели</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='ampuly' %}">Ампулы</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='syvorotki' %}">Сыворотки</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='tonery-i-misty' %}">Тонеры И
+							Мисты</a></li>
+					<li class="subcategories"><a href="{% url 'categories' category='eksfolianty' %}">Отшелушивание</a>
+					</li>
+					<li class="subcategories"><a href="{% url 'categories' category='ochishcheniye' %}">Очищение</a>
+					</li>
+				</ul>
+			</li>
+			<li><a href="#popular">ПОПУЛЯРНОЕ</a></li>
+			<li><a href="#new">НОВИНКИ</a></li>
+			<li><a href="#sales">АКЦИИ</a></li>
 
-      </ul>
+		</ul>
 
 		<div class="icons">
 			<i class='bx bx-menu' id="menu-icon"></i>
@@ -51,6 +57,12 @@
 				<input type="search" name="searched" id="" placeholder="Найти продукт...">
 				<button type="submit"><i class='bx bx-search' id="search-icon2"></i></button>
 			</form>
+		</div>
+
+		<div class="burger">
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
 		</div>
 	</header>
 
@@ -128,7 +140,9 @@
 
 			<div class="product">
 
-				<a href="{% url 'product_detail' id=product.id %}"> <h1 class="product_title">{{product.title}}</h1></a>
+				<a href="{% url 'product_detail' id=product.id %}">
+					<h1 class="product_title">{{product.title}}</h1>
+				</a>
 				<h2 class="product_price">{{product.price}}₸</h2>
 
 
@@ -163,76 +177,93 @@
 
 			<div class="product">
 
-				<a href="{% url 'product_detail' id=product.id %}"><h1 class="product_title">{{product.title}}</h1>
-				<h2 class="product_price">{{product.price}}₸</h2>
+				<a href="{% url 'product_detail' id=product.id %}">
+					<h1 class="product_title">{{product.title}}</h1>
+					<h2 class="product_price">{{product.price}}₸</h2>
 
 
-				<a href="{% url 'cartadd' id=product.id %}"><button class="addtocartbtn add">Add to Cart</button></a>
+					<a href="{% url 'cartadd' id=product.id %}"><button class="addtocartbtn add">Add to
+							Cart</button></a>
 			</div>
 		</div>
 		{% endfor %}
 	</div>
 
-<footer class="footer-distributed">
+	<footer class="footer-distributed">
 
-			<div class="footer-left">
+		<div class="footer-left">
 
-				<div style="width:120px"><a href="#" class="name">Face It!</a></div>
+			<div style="width:120px"><a href="#" class="name">Face It!</a></div>
 
-				<p class="footer-links">
-					<a href="/" class="link-1">ГЛАВНАЯ</a>
+			<p class="footer-links">
+				<a href="/" class="link-1">ГЛАВНАЯ</a>
 
-					<a href="#">КАТАЛОГ</a>
+				<a href="#">КАТАЛОГ</a>
 
-					<a href="#popular">ПОПУЛЯРНОЕ</a>
+				<a href="#popular">ПОПУЛЯРНОЕ</a>
 
-					<a href="#new">НОВИНКИ</a>
+				<a href="#new">НОВИНКИ</a>
 
-					<a href="#sales">АКЦИИ</a>
+				<a href="#sales">АКЦИИ</a>
 
-				</p>
+			</p>
 
 
-			</div>
+		</div>
 
-			<div class="footer-center">
+		<div class="footer-center">
 
 
 			<div class="footer-right">
 
 				<div>
-					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M24 33.1Q29.2 28.9 31.85 25.025Q34.5 21.15 34.5 17.8Q34.5 14.85 33.425 12.8Q32.35 10.75 30.775 9.45Q29.2 8.15 27.35 7.575Q25.5 7 24 7Q22.5 7 20.65 7.575Q18.8 8.15 17.225 9.45Q15.65 10.75 14.575 12.8Q13.5 14.85 13.5 17.8Q13.5 21.15 16.15 25.025Q18.8 28.9 24 33.1ZM24 36.9Q17.15 31.75 13.825 27.05Q10.5 22.35 10.5 17.8Q10.5 14.4 11.725 11.825Q12.95 9.25 14.9 7.5Q16.85 5.75 19.25 4.875Q21.65 4 24 4Q26.35 4 28.75 4.875Q31.15 5.75 33.1 7.5Q35.05 9.25 36.275 11.825Q37.5 14.4 37.5 17.8Q37.5 22.35 34.175 27.05Q30.85 31.75 24 36.9ZM24 21Q25.45 21 26.475 19.975Q27.5 18.95 27.5 17.5Q27.5 16.05 26.475 15.025Q25.45 14 24 14Q22.55 14 21.525 15.025Q20.5 16.05 20.5 17.5Q20.5 18.95 21.525 19.975Q22.55 21 24 21ZM10.5 44V41H37.5V44ZM24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+						<path
+							d="M24 33.1Q29.2 28.9 31.85 25.025Q34.5 21.15 34.5 17.8Q34.5 14.85 33.425 12.8Q32.35 10.75 30.775 9.45Q29.2 8.15 27.35 7.575Q25.5 7 24 7Q22.5 7 20.65 7.575Q18.8 8.15 17.225 9.45Q15.65 10.75 14.575 12.8Q13.5 14.85 13.5 17.8Q13.5 21.15 16.15 25.025Q18.8 28.9 24 33.1ZM24 36.9Q17.15 31.75 13.825 27.05Q10.5 22.35 10.5 17.8Q10.5 14.4 11.725 11.825Q12.95 9.25 14.9 7.5Q16.85 5.75 19.25 4.875Q21.65 4 24 4Q26.35 4 28.75 4.875Q31.15 5.75 33.1 7.5Q35.05 9.25 36.275 11.825Q37.5 14.4 37.5 17.8Q37.5 22.35 34.175 27.05Q30.85 31.75 24 36.9ZM24 21Q25.45 21 26.475 19.975Q27.5 18.95 27.5 17.5Q27.5 16.05 26.475 15.025Q25.45 14 24 14Q22.55 14 21.525 15.025Q20.5 16.05 20.5 17.5Q20.5 18.95 21.525 19.975Q22.55 21 24 21ZM10.5 44V41H37.5V44ZM24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Q24 17.8 24 17.8Z" />
+					</svg>
 					<p>Ул.Туркестан 8 г.Нур-Султан</p>
 				</div>
 
 				<div>
-					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M37.65 41.95Q31.05 41.95 24.975 39.625Q18.9 37.3 14.225 33.175Q9.55 29.05 6.775 23.425Q4 17.8 4 11.2Q4 9 5.225 7.5Q6.45 6 8.7 6H13.35Q14.7 6 15.45 6.775Q16.2 7.55 16.5 9Q16.8 10.5 17.175 12.1Q17.55 13.7 18.05 14.95Q18.5 16 18.325 16.925Q18.15 17.85 17.3 18.7L13.4 22.5Q15.8 26 20.075 29.275Q24.35 32.55 28.4 33.75L30.7 29.1Q31.15 28.2 31.85 27.875Q32.55 27.55 33.8 27.65Q35.1 27.75 36.375 27.75Q37.65 27.75 39.25 27.65Q40.75 27.55 41.775 28.45Q42.8 29.35 43.15 31.35L43.95 35.85Q43.95 35.85 44.05 36.7Q44.05 38.8 42.325 40.375Q40.6 41.95 37.65 41.95Z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+						<path
+							d="M37.65 41.95Q31.05 41.95 24.975 39.625Q18.9 37.3 14.225 33.175Q9.55 29.05 6.775 23.425Q4 17.8 4 11.2Q4 9 5.225 7.5Q6.45 6 8.7 6H13.35Q14.7 6 15.45 6.775Q16.2 7.55 16.5 9Q16.8 10.5 17.175 12.1Q17.55 13.7 18.05 14.95Q18.5 16 18.325 16.925Q18.15 17.85 17.3 18.7L13.4 22.5Q15.8 26 20.075 29.275Q24.35 32.55 28.4 33.75L30.7 29.1Q31.15 28.2 31.85 27.875Q32.55 27.55 33.8 27.65Q35.1 27.75 36.375 27.75Q37.65 27.75 39.25 27.65Q40.75 27.55 41.775 28.45Q42.8 29.35 43.15 31.35L43.95 35.85Q43.95 35.85 44.05 36.7Q44.05 38.8 42.325 40.375Q40.6 41.95 37.65 41.95Z" />
+					</svg>
 					<p>+7 (707) 265-10-10</p>
 				</div>
 
 				<div>
-					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M7 40Q5.8 40 4.9 39.1Q4 38.2 4 37V11Q4 9.8 4.9 8.9Q5.8 8 7 8H41Q42.2 8 43.1 8.9Q44 9.8 44 11V37Q44 38.2 43.1 39.1Q42.2 40 41 40ZM24 24.9 7 13.75V37Q7 37 7 37Q7 37 7 37H41Q41 37 41 37Q41 37 41 37V13.75ZM24 21.9 40.8 11H7.25ZM7 13.75V11V13.75V37Q7 37 7 37Q7 37 7 37Q7 37 7 37Q7 37 7 37Z"/></svg>
+					<svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+						<path
+							d="M7 40Q5.8 40 4.9 39.1Q4 38.2 4 37V11Q4 9.8 4.9 8.9Q5.8 8 7 8H41Q42.2 8 43.1 8.9Q44 9.8 44 11V37Q44 38.2 43.1 39.1Q42.2 40 41 40ZM24 24.9 7 13.75V37Q7 37 7 37Q7 37 7 37H41Q41 37 41 37Q41 37 41 37V13.75ZM24 21.9 40.8 11H7.25ZM7 13.75V11V13.75V37Q7 37 7 37Q7 37 7 37Q7 37 7 37Q7 37 7 37Z" />
+					</svg>
 					<p><a href="mailto:faceit@gmail.com">faceit@gmail.com</a></p>
 				</div>
 				<div>
-				<a href="inst/"><svg style="transform:scale(1.3); margin-left:12px; margin-top:7px;margin-right:12px;" xmlns="http://www.w3.org/2000/svg" fill="#000000"  width="24px" height="24px">    <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z"/></svg></a>
-				<p><a href="inst/">@faceit</a></p>
+					<a href="inst/"><svg
+							style="transform:scale(1.3); margin-left:12px; margin-top:7px;margin-right:12px;"
+							xmlns="http://www.w3.org/2000/svg" fill="#000000" width="24px" height="24px">
+							<path
+								d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" />
+						</svg></a>
+					<p><a href="inst/">@faceit</a></p>
 				</div>
 			</div>
 
 
-			</div>
+		</div>
 
 
 
-<div class="chatbox-wrapper">
+		<div class="chatbox-wrapper">
 			<div class="chatbox-toggle">
-				<i class='bx bx-message-dots'style="color:white"></i>
+				<i class='bx bx-message-dots' style="color:white"></i>
 			</div>
 			<div class="chatbox-message-wrapper">
 				<div class="chatbox-message-header">
 					<div class="chatbox-message-profile">
-						<img src="https://cdn-icons.flaticon.com/png/512/2896/premium/2896147.png?token=exp=1653069060~hmac=91993fbe9fdca9e4c76ef6e18cb980b3" alt="" class="chatbox-message-image">
+						<img src="{% static 'images/admin.png' %}"
+							alt="" class="chatbox-message-image">
 						<div>
 							<h4 class="chatbox-message-name">Admin Faceit</h4>
 							<p class="chatbox-message-status">онлайн</p>
@@ -240,95 +271,99 @@
 					</div>
 				</div>
 				<div class="chatbox-message-content msg_card_body" id="msg_card_body">
-					<h4 class="chatbox-message-no-message">У вас еще нет сообщений</h4>
-					  {% if user.is_authenticated %}
-  <input type="hidden" id="logged-in-user" value="{{ user.id }}">
-{% endif %}
-					  <input type="hidden" id="other-user" value="2">
+					<h1 class="chatbox-message-no-message">У вас еще нет сообщений</h1 	>
+					{% if user.is_authenticated %}
+					<input type="hidden" id="logged-in-user" value="{{ user.id }}">
+					{% endif %}
+					<input type="hidden" id="other-user" value="2">
 
 
 
-					 {% for thread in Threads %}
+					{% for thread in Threads %}
 
-					<li class="messages-wrapper  {% if forloop.first %}hide is_active{% else %}hide{% endif %}" chat-id="chat_{{ thread.id }}"></li>
-							{% for chat in thread.chatmessage_thread.all %}
-                                  {% if chat.user == user %}
-						<div class="chatbox-message-item sent">
+					<li class="messages-wrapper  {% if forloop.first %}hide is_active{% else %}hide{% endif %}"
+						chat-id="chat_{{ thread.id }}"></li>
+					{% for chat in thread.chatmessage_thread.all %}
+					{% if chat.user == user %}
+					<div class="chatbox-message-item sent">
 						<span class="chatbox-message-item-text">
 							{{ chat.message }}
 						</span>
-						<span class="chatbox-message-item-time">{{ chat.timestamp|date:"d D" }}, {{ chat.timestamp|time:"H:i" }}</span>
+						<span class="chatbox-message-item-time">{{ chat.timestamp|date:"d D" }},
+							{{ chat.timestamp|time:"H:i" }}</span>
 					</div>
 
-                                  {% else %}
-                              	<div class="chatbox-message-item received">
+					{% else %}
+					<div class="chatbox-message-item received">
 						<span class="chatbox-message-item-text">
-														{{ chat.message }}
+							{{ chat.message }}
 
 						</span>
-						<span class="chatbox-message-item-time">{{ chat.timestamp|date:"d D" }}, {{ chat.timestamp|time:"H:i" }}</span>
+						<span class="chatbox-message-item-time">{{ chat.timestamp|date:"d D" }},
+							{{ chat.timestamp|time:"H:i" }}</span>
 					</div>
-                                  {% endif %}
-                              {% endfor %}
-                      {% endfor %}
+					{% endif %}
+					{% endfor %}
+					{% endfor %}
 
 
 				</div>
 				<div class="chatbox-message-bottom">
 					<form action="#" class="chatbox-message-form" id="chatbox-message-form">
-						<input 	placeholder="Введите сообщение..." class="chatbox-message-input" id="chatbox-message-input"></input>
-						<button type="submit" class="chatbox-message-submit"><i class='bx bx-send' ></i></button>
+						<input placeholder="Введите сообщение..." class="chatbox-message-input"
+							id="chatbox-message-input"></input>
+						<button type="submit" class="chatbox-message-submit"><i class='bx bx-send'></i></button>
 					</form>
 				</div>
 			</div>
 		</div>
 
 
-	<script src="{% static 'js/script.js' %}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-const textarea = document.querySelector('.chatbox-message-input')
-const chatboxForm = document.querySelector('.chatbox-message-form')
+		<script type="text/javascript">
+			const textarea = document.querySelector('.chatbox-message-input')
+			const chatboxForm = document.querySelector('.chatbox-message-form')
 
-textarea.addEventListener('input', function () {
-	let line = textarea.value.split('\n').length
+			textarea.addEventListener('input', function () {
+				let line = textarea.value.split('\n').length
 
-	if(textarea.rows < 6 || line < 6) {
-		textarea.rows = line
-	}
+				if (textarea.rows < 6 || line < 6) {
+					textarea.rows = line
+				}
 
-	if(textarea.rows > 1) {
-		chatboxForm.style.alignItems = 'flex-end'
-	} else {
-		chatboxForm.style.alignItems = 'center'
-	}
-})
-// TOGGLE CHATBOX
-const chatboxToggle = document.querySelector('.chatbox-toggle')
-const chatboxMessage = document.querySelector('.chatbox-message-wrapper')
+				if (textarea.rows > 1) {
+					chatboxForm.style.alignItems = 'flex-end'
+				} else {
+					chatboxForm.style.alignItems = 'center'
+				}
+			})
+			// TOGGLE CHATBOX
+			const chatboxToggle = document.querySelector('.chatbox-toggle')
+			const chatboxMessage = document.querySelector('.chatbox-message-wrapper')
 
-chatboxToggle.addEventListener('click', function () {
-	chatboxMessage.classList.toggle('show')
-})
-// CHATBOX MESSAGE
-const chatboxMessageWrapper = document.querySelector('.chatbox-message-content')
-const chatboxNoMessage = document.querySelector('.chatbox-message-no-message')
-chatboxForm.addEventListener('submit', function (e) {
-	e.preventDefault()
-	if(isValid(textarea.value)) {
-		writeMessage()
+			chatboxToggle.addEventListener('click', function () {
+				chatboxMessage.classList.toggle('show')
+			})
+			// CHATBOX MESSAGE
+			const chatboxMessageWrapper = document.querySelector('.chatbox-message-content')
+			const chatboxNoMessage = document.querySelector('.chatbox-message-no-message')
+			chatboxForm.addEventListener('submit', function (e) {
+				e.preventDefault()
+				if (isValid(textarea.value)) {
+					writeMessage()
 
-	}
-})
+				}
+			})
 
-function addZero(num) {
-	return num < 10 ? '0'+num : num
-}
+			function addZero(num) {
+				return num < 10 ? '0' + num : num
+			}
 
-function writeMessage() {
-	const today = new Date()
-	let message = `
+			function writeMessage() {
+				const today = new Date()
+				let message = `
 		<div class="chatbox-message-item sent">
 			<span class="chatbox-message-item-text">
 				${textarea.value.trim().replace(/\n/g, '<br>\n')}
@@ -336,18 +371,18 @@ function writeMessage() {
 			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
 		</div>
 	`
-	chatboxMessageWrapper.insertAdjacentHTML('beforeend', message)
-	chatboxForm.style.alignItems = 'center'
-	textarea.rows = 1
-	textarea.focus()
+				chatboxMessageWrapper.insertAdjacentHTML('beforeend', message)
+				chatboxForm.style.alignItems = 'center'
+				textarea.rows = 1
+				textarea.focus()
 
-	chatboxNoMessage.style.display = 'none'
-	scrollBottom()
-}
+				chatboxNoMessage.style.display = 'none'
+				scrollBottom()
+			}
 
-function autoReply() {
-	const today = new Date()
-	let message = `
+			function autoReply() {
+				const today = new Date()
+				let message = `
 		<div class="chatbox-message-item received">
 			<span class="chatbox-message-item-text">
 				Спасибо за обращение в магазин косметики FaceIt! Мы обязательно вам ответим! Перезагрузите страничку)
@@ -355,136 +390,136 @@ function autoReply() {
 			<span class="chatbox-message-item-time">${addZero(today.getHours())}:${addZero(today.getMinutes())}</span>
 		</div>
 	`
-	chatboxMessageWrapper.insertAdjacentHTML('beforeend', message)
-	scrollBottom()
-}
+				chatboxMessageWrapper.insertAdjacentHTML('beforeend', message)
+				scrollBottom()
+			}
 
-function scrollBottom() {
-	chatboxMessageWrapper.scrollTo(0, chatboxMessageWrapper.scrollHeight)
-}
+			function scrollBottom() {
+				chatboxMessageWrapper.scrollTo(0, chatboxMessageWrapper.scrollHeight)
+			}
 
-function isValid(value) {
-	let text = value.replace(/\n/g, '')
-	text = text.replace(/\s/g, '')
+			function isValid(value) {
+				let text = value.replace(/\n/g, '')
+				text = text.replace(/\s/g, '')
 
-	return text.length > 0
-}
-
-
-let input_message = $('#chatbox-message-input')
-let send_message_form = $('#chatbox-message-form')
-let message_body = $('.msg_card_body')
-
-const USER_ID = $('#logged-in-user').val()
+				return text.length > 0
+			}
 
 
+			let input_message = $('#chatbox-message-input')
+			let send_message_form = $('#chatbox-message-form')
+			let message_body = $('.msg_card_body')
 
-let loc = window.location
-let wsStart = 'ws://'
-
-if(loc.protocol === 'https') {
-wsStart = 'wss://'
-}
-let endpoint = wsStart + loc.host + "/chat/"
-
-var socket = new WebSocket(endpoint)
-
-socket.onopen = async function(e){
-console.log('open', e)
-send_message_form.on('submit', function (e){
-  e.preventDefault()
-  let message = input_message.val()
-  let send_to = $('#other-user').val()
-console.log("message",input_message)
-  let thread_id = get_active_thread_id()
-
-  let data = {
-      'message': message,
-      'sent_by': USER_ID,
-      'send_to': send_to,
-      'thread_id': thread_id
-  }
-  data = JSON.stringify(data)
-  console.log(data)
-  socket.send(data)
-  $(this)[0].reset()
-})
-}
-
-socket.onmessage = async function(e){
-console.log('message', e)
-let data = JSON.parse(e.data)
-let message = data['message']
-let sent_by_id = data['sent_by']
-let thread_id = data['thread_id']
-newMessage(message, sent_by_id, thread_id)
-}
-
-socket.onerror = async function(e){
-console.log('error', e)
-}
-
-socket.onclose = async function(e){
-console.log('close', e)
-}
+			const USER_ID = $('#logged-in-user').val()
 
 
-function newMessage(message, sent_by_id, thread_id) {
-if ($.trim(message) === '') {
-return false;
-}
-let message_element;
-let chat_id = 'chat_' + thread_id
-if(sent_by_id == USER_ID){
-message_element = `
+
+			let loc = window.location
+			let wsStart = 'ws://'
+
+			if (loc.protocol === 'https') {
+				wsStart = 'wss://'
+			}
+			let endpoint = wsStart + loc.host + "/chat/"
+
+			var socket = new WebSocket(endpoint)
+
+			socket.onopen = async function (e) {
+				console.log('open', e)
+				send_message_form.on('submit', function (e) {
+					e.preventDefault()
+					let message = input_message.val()
+					let send_to = $('#other-user').val()
+					console.log("message", input_message)
+					let thread_id = get_active_thread_id()
+
+					let data = {
+						'message': message,
+						'sent_by': USER_ID,
+						'send_to': send_to,
+						'thread_id': thread_id
+					}
+					data = JSON.stringify(data)
+					console.log(data)
+					socket.send(data)
+					$(this)[0].reset()
+				})
+			}
+
+			socket.onmessage = async function (e) {
+				console.log('message', e)
+				let data = JSON.parse(e.data)
+				let message = data['message']
+				let sent_by_id = data['sent_by']
+				let thread_id = data['thread_id']
+				newMessage(message, sent_by_id, thread_id)
+			}
+
+			socket.onerror = async function (e) {
+				console.log('error', e)
+			}
+
+			socket.onclose = async function (e) {
+				console.log('close', e)
+			}
+
+
+			function newMessage(message, sent_by_id, thread_id) {
+				if ($.trim(message) === '') {
+					return false;
+				}
+				let message_element;
+				let chat_id = 'chat_' + thread_id
+				if (sent_by_id == USER_ID) {
+					message_element = `
 `
-}
-else{
-message_element = `    	<div class="chatbox-message-item received">
+				} else {
+					message_element = `    	<div class="chatbox-message-item received">
 						<span class="chatbox-message-item-text">
 														${message}
 
 						</span>
-						<span class="chatbox-message-item-time">{{ chat.timestamp|date:"d D" }}, {{ chat.timestamp|time:"H:i" }}</span>
+						<span class="chatbox-message-item-time">{{ chat.timestamp|date:"d D" }}Сейчас {{ chat.timestamp|time:"H:i" }}</span>
 					</div>
-  `}
+  `
+				}
 
-let message_body = $('#msg_card_body')
-console.log("putted")
-message_body.append($(message_element))
-message_body.animate({
-  scrollTop: $(document).height()
-}, 100);
-input_message.val(null);
-}
-
-
-$('.contact-li').on('click', function (){
-$('.contacts .actiive').removeClass('active')
-$(this).addClass('active')
-
-// message wrappers
-let chat_id = $(this).attr('chat-id')
-$('.messages-wrapper.is_active').removeClass('is_active')
-$('.messages-wrapper[chat-id="' + chat_id +'"]').addClass('is_active')
-
-})
-
-function get_active_other_user_id(){
-let other_user_id = $('.messages-wrapper.is_active').attr('other-user-id')
-other_user_id = $.trim(other_user_id)
-return other_user_id
-}
-
-function get_active_thread_id(){
-let chat_id = $('.messages-wrapper.is_active').attr('chat-id')
-let thread_id = chat_id.replace('chat_', '')
-return thread_id
-}
+				let message_body = $('#msg_card_body')
+				console.log("putted")
+				message_body.append($(message_element))
+				message_body.animate({
+					scrollTop: $(document).height()
+				}, 100);
+				input_message.val(null);
+			}
 
 
-</script>
-			</footer>
+			$('.contact-li').on('click', function () {
+				$('.contacts .actiive').removeClass('active')
+				$(this).addClass('active')
+
+				// message wrappers
+				let chat_id = $(this).attr('chat-id')
+				$('.messages-wrapper.is_active').removeClass('is_active')
+				$('.messages-wrapper[chat-id="' + chat_id + '"]').addClass('is_active')
+
+			})
+
+			function get_active_other_user_id() {
+				let other_user_id = $('.messages-wrapper.is_active').attr('other-user-id')
+				other_user_id = $.trim(other_user_id)
+				return other_user_id
+			}
+
+			function get_active_thread_id() {
+				let chat_id = $('.messages-wrapper.is_active').attr('chat-id')
+				let thread_id = chat_id.replace('chat_', '')
+				return thread_id
+			}
+		</script>
+	</footer>
+	<script src="{% static 'js/burger.js' %}"></script>
+
 
 </body>
 
